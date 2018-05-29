@@ -1,27 +1,33 @@
-/*
-SQLyog Ultimate v11.11 (64 bit)
-MySQL - 5.7.14 : Database - micro
-*********************************************************************
-*/
+-- phpMyAdmin SQL Dump
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: May 29, 2018 at 07:18 AM
+-- Server version: 5.7.14
+-- PHP Version: 5.6.25
 
-/*!40101 SET NAMES utf8 */;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
-/*!40101 SET SQL_MODE=''*/;
 
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`micro` /*!40100 DEFAULT CHARACTER SET latin1 */;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-USE `micro`;
+--
+-- Database: `micro`
+--
 
-/*Table structure for table `tab_avalista` */
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `tab_avalista`;
+--
+-- Table structure for table `tab_avalista`
+--
 
 CREATE TABLE `tab_avalista` (
-  `IdAvalista` int(10) NOT NULL AUTO_INCREMENT,
+  `IdAvalista` int(10) NOT NULL,
   `Sexo` varchar(20) DEFAULT NULL,
   `Nome` varchar(200) DEFAULT NULL,
   `DataNascimento` date DEFAULT NULL,
@@ -40,25 +46,24 @@ CREATE TABLE `tab_avalista` (
   `Profissao` varchar(255) DEFAULT NULL,
   `Observacao` varchar(250) DEFAULT NULL,
   `DataReg` timestamp NULL DEFAULT NULL,
-  `IdUsuario` int(10) DEFAULT NULL,
-  PRIMARY KEY (`IdAvalista`),
-  KEY `CUsuario` (`IdUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  `IdUsuario` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tab_avalista` */
+--
+-- Dumping data for table `tab_avalista`
+--
 
-LOCK TABLES `tab_avalista` WRITE;
+INSERT INTO `tab_avalista` (`IdAvalista`, `Sexo`, `Nome`, `DataNascimento`, `Naturalidade`, `Cidade`, `Bairro`, `Quarteirao`, `CasaNumero`, `ContactoAvalista`, `Estado`, `TipoDocu`, `Documento`, `DataEmissao`, `LocalEmissao`, `MembrosFamiliares`, `Profissao`, `Observacao`, `DataReg`, `IdUsuario`) VALUES
+(3, 'Masculino', 'adasd', '2018-03-09', 'afe', 'asdsad', 'awda', '1', '1112', '800000000', 'Solteiro(a)', 'BI', '754', '2018-02-26', 'tdsuth', '8', 'kaedsakd', '', '2018-03-17 00:33:20', 14);
 
-insert  into `tab_avalista`(`IdAvalista`,`Sexo`,`Nome`,`DataNascimento`,`Naturalidade`,`Cidade`,`Bairro`,`Quarteirao`,`CasaNumero`,`ContactoAvalista`,`Estado`,`TipoDocu`,`Documento`,`DataEmissao`,`LocalEmissao`,`MembrosFamiliares`,`Profissao`,`Observacao`,`DataReg`,`IdUsuario`) values (3,'Masculino','adasd','2018-03-09','afe','asdsad','awda','1','1112','800000000','Solteiro(a)','BI','754','2018-02-26','tdsuth','8','kaedsakd','','2018-03-17 02:33:20',14);
+-- --------------------------------------------------------
 
-UNLOCK TABLES;
-
-/*Table structure for table `tab_cliente` */
-
-DROP TABLE IF EXISTS `tab_cliente`;
+--
+-- Table structure for table `tab_cliente`
+--
 
 CREATE TABLE `tab_cliente` (
-  `IdCliente` int(10) NOT NULL AUTO_INCREMENT,
+  `IdCliente` int(10) NOT NULL,
   `Sexo` varchar(15) DEFAULT NULL,
   `Nome` varchar(100) DEFAULT NULL,
   `DataNascimento` date DEFAULT NULL,
@@ -82,26 +87,28 @@ CREATE TABLE `tab_cliente` (
   `ContactoConjugue` varchar(20) DEFAULT '80000000',
   `DataReg` timestamp NULL DEFAULT NULL,
   `IdUsuario` int(10) DEFAULT NULL,
-  `IdGestor` int(11) DEFAULT NULL,
-  PRIMARY KEY (`IdCliente`),
-  KEY `IdGestor` (`IdGestor`),
-  CONSTRAINT `tab_cliente_ibfk_2` FOREIGN KEY (`IdGestor`) REFERENCES `tb_gestor` (`IdGestor`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+  `IdGestor` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tab_cliente` */
+--
+-- Dumping data for table `tab_cliente`
+--
 
-LOCK TABLES `tab_cliente` WRITE;
+INSERT INTO `tab_cliente` (`IdCliente`, `Sexo`, `Nome`, `DataNascimento`, `Naturalidade`, `Cidade`, `Bairro`, `Quarteirao`, `CasaNumero`, `ContactoCliente`, `Estado`, `TipoDocu`, `Documento`, `DataEmissao`, `LocalEmissao`, `MembrosFamiliares`, `Profissao`, `Observacao`, `NomePai`, `NomeMae`, `Conjugue`, `ContactoConjugue`, `DataReg`, `IdUsuario`, `IdGestor`) VALUES
+(1, 'Masculino', 'Ides', '2043-08-21', 'Moz', 'Mpto', 'Zimpas', '23', 21, '800000028', 'Solteiro(a)', 'BI', '12222222dh', '2020-10-22', 'gfdyh', 10, 'Teacher', '', 'aesgf', 'jcjh', '', '', '2018-03-16 05:21:03', 14, 1),
+(2, 'Masculino', 'Rafa', '2043-08-21', 'South', 'Mpto', 'Zimpas', '23', 21, '800000028', 'Solteiro(a)', 'BI', '12222222dh', '2020-10-22', 'gfdyh', 10, 'Teacher', '', 'aesgf', 'jcjh', '', '', '2018-03-16 05:21:03', 14, 1),
+(3, 'Masculino', 'Neyde', '2043-05-11', 'Moz', 'Mpto', 'Zimpas', '23', 21, '800000028', 'Solteiro(a)', 'BI', '12222222dh', '2020-10-22', 'gfdyh', 10, 'Teacher', '', 'aesgf', 'jcjh', '', '', '2018-03-16 05:21:03', 14, 1),
+(4, 'Masculino', 'Mira', '2043-08-21', 'South', 'Mpto', 'Zimpas', '23', 21, '800000028', 'Solteiro(a)', 'BI', '12222222dh', '2020-10-22', 'gfdyh', 10, 'Teacher', '', 'aesgf', 'jcjh', '', '', '2018-03-16 05:21:03', 14, 1),
+(5, 'Masculino', 'Simango', '2043-08-21', 'Moz', 'Mpto', 'Zimpas', '23', 21, '800000028', 'Solteiro(a)', 'BI', '12222222dh', '2020-10-22', 'gfdyh', 10, 'Teacher', '', 'aesgf', 'jcjh', '', '', '2018-03-16 05:21:03', 14, 1);
 
-insert  into `tab_cliente`(`IdCliente`,`Sexo`,`Nome`,`DataNascimento`,`Naturalidade`,`Cidade`,`Bairro`,`Quarteirao`,`CasaNumero`,`ContactoCliente`,`Estado`,`TipoDocu`,`Documento`,`DataEmissao`,`LocalEmissao`,`MembrosFamiliares`,`Profissao`,`Observacao`,`NomePai`,`NomeMae`,`Conjugue`,`ContactoConjugue`,`DataReg`,`IdUsuario`,`IdGestor`) values (1,'Masculino','Ides','2043-08-21','Moz','Mpto','Zimpas','23',21,'800000028','Solteiro(a)','BI','12222222dh','2020-10-22','gfdyh',10,'Teacher','','aesgf','jcjh','','','2018-03-16 07:21:03',14,1),(2,'Masculino','Rafa','2043-08-21','South','Mpto','Zimpas','23',21,'800000028','Solteiro(a)','BI','12222222dh','2020-10-22','gfdyh',10,'Teacher','','aesgf','jcjh','','','2018-03-16 07:21:03',14,1),(3,'Masculino','Neyde','2043-05-11','Moz','Mpto','Zimpas','23',21,'800000028','Solteiro(a)','BI','12222222dh','2020-10-22','gfdyh',10,'Teacher','','aesgf','jcjh','','','2018-03-16 07:21:03',14,1),(4,'Masculino','Mira','2043-08-21','South','Mpto','Zimpas','23',21,'800000028','Solteiro(a)','BI','12222222dh','2020-10-22','gfdyh',10,'Teacher','','aesgf','jcjh','','','2018-03-16 07:21:03',14,1),(5,'Masculino','Simango','2043-08-21','Moz','Mpto','Zimpas','23',21,'800000028','Solteiro(a)','BI','12222222dh','2020-10-22','gfdyh',10,'Teacher','','aesgf','jcjh','','','2018-03-16 07:21:03',14,1);
+-- --------------------------------------------------------
 
-UNLOCK TABLES;
-
-/*Table structure for table `tab_credito_1solicitado` */
-
-DROP TABLE IF EXISTS `tab_credito_1solicitado`;
+--
+-- Table structure for table `tab_credito_1solicitado`
+--
 
 CREATE TABLE `tab_credito_1solicitado` (
-  `IdCredito` int(10) NOT NULL AUTO_INCREMENT,
+  `IdCredito` int(10) NOT NULL,
   `IdCliente` varchar(10) DEFAULT NULL,
   `IdAvalista` varchar(10) DEFAULT NULL,
   `IdLinha` varchar(10) DEFAULT NULL,
@@ -115,28 +122,37 @@ CREATE TABLE `tab_credito_1solicitado` (
   `IdUsuario` varchar(10) DEFAULT NULL,
   `Posicao` varchar(255) DEFAULT NULL,
   `Situacao` varchar(255) DEFAULT NULL,
-  `IdSucursal` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`IdCredito`),
-  KEY `CLinha` (`IdAvalista`),
-  KEY `tab_AlunoCursoCodigoAluno` (`IdCliente`),
-  KEY `tab_AlunoCursoCodigoCurso` (`IdLinha`),
-  KEY `tab_AlunoCursoCodigoGestor` (`IdGestor`),
-  KEY `IdDestino` (`IdDestino`),
-  KEY `IdUsuario` (`IdUsuario`),
-  KEY `IdSucursal` (`IdSucursal`)
-) ENGINE=InnoDB AUTO_INCREMENT=182 DEFAULT CHARSET=utf8;
+  `IdSucursal` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tab_credito_1solicitado` */
+--
+-- Dumping data for table `tab_credito_1solicitado`
+--
 
-LOCK TABLES `tab_credito_1solicitado` WRITE;
+INSERT INTO `tab_credito_1solicitado` (`IdCredito`, `IdCliente`, `IdAvalista`, `IdLinha`, `IdGestor`, `IdDestino`, `TaxaJuro`, `Prazo`, `Periodo`, `ValorSolicitado`, `DataReg`, `IdUsuario`, `Posicao`, `Situacao`, `IdSucursal`) VALUES
+(165, '1', '3', '12', '1', '2', NULL, NULL, NULL, '345', '2018-03-17 23:23:51', '', NULL, 'Rejeitado', ''),
+(166, '2', '3', '14', '4', '3', NULL, NULL, NULL, '556454', '2018-03-17 23:25:05', '', NULL, 'Rejeitado', ''),
+(167, '3', '3', '12', '1', '2', NULL, NULL, NULL, '345', '2018-03-17 23:27:08', '14', NULL, 'Aprovado', '1'),
+(168, '2', '3', '12', '1', '2', NULL, NULL, NULL, '354', '2018-03-17 23:27:50', '14', NULL, 'Rejeitado', '1'),
+(169, '1', '3', '12', '1', '2', NULL, NULL, NULL, '718683721361', '2018-03-17 23:28:31', '14', NULL, 'Rejeitado', '1'),
+(170, '0', '3', '12', '1', '2', NULL, NULL, NULL, '7777777777', '2018-03-18 02:19:42', '14', NULL, 'Rejeitado', '1'),
+(171, '0', '3', '12', '1', '2', NULL, NULL, NULL, '6666', '2018-03-18 02:43:49', '14', NULL, 'Rejeitado', '1'),
+(172, '0', '3', '12', '1', '2', NULL, NULL, NULL, '3456780', '2018-03-18 03:43:39', '14', NULL, 'Rejeitado', '1'),
+(173, '0', '3', '12', '1', '2', NULL, NULL, NULL, '45678', '2018-03-18 04:44:20', '14', NULL, 'Aprovado', '1'),
+(174, '0', '3', '12', '1', '2', NULL, NULL, NULL, '345678', '2018-03-18 04:44:24', '14', NULL, 'Aprovado', '1'),
+(175, '0', '3', '12', '1', '2', NULL, NULL, NULL, '23434', '2018-03-19 02:35:16', '14', NULL, 'Aprovado', '1'),
+(176, '0', '3', '12', '1', '2', NULL, NULL, NULL, '2132', '2018-03-19 02:57:27', '14', NULL, 'Aprovado', '1'),
+(177, '0', '3', '12', '1', '2', NULL, NULL, NULL, '23', '2018-03-19 02:57:34', '14', NULL, 'Rejeitado', '1'),
+(178, '0', '3', '12', '1', '2', NULL, NULL, NULL, '132', '2018-03-19 02:57:57', '14', NULL, 'Rejeitado', '1'),
+(179, '0', '3', '12', '1', '2', NULL, NULL, NULL, '2324324', '2018-03-19 03:12:03', '14', NULL, 'Rejeitado', '1'),
+(180, '0', '3', '12', '1', '2', NULL, NULL, NULL, '222111', '2018-03-19 03:12:15', '14', NULL, 'Rejeitado', '1'),
+(181, '0', '3', '12', '1', '2', NULL, NULL, NULL, '234324', '2018-03-19 03:46:19', '14', NULL, 'Solicitado', '1');
 
-insert  into `tab_credito_1solicitado`(`IdCredito`,`IdCliente`,`IdAvalista`,`IdLinha`,`IdGestor`,`IdDestino`,`TaxaJuro`,`Prazo`,`Periodo`,`ValorSolicitado`,`DataReg`,`IdUsuario`,`Posicao`,`Situacao`,`IdSucursal`) values (165,'1','3','12','1','2',NULL,NULL,NULL,'345','2018-03-18 01:23:51','',NULL,'Rejeitado',''),(166,'2','3','14','4','3',NULL,NULL,NULL,'556454','2018-03-18 01:25:05','',NULL,'Rejeitado',''),(167,'3','3','12','1','2',NULL,NULL,NULL,'345','2018-03-18 01:27:08','14',NULL,'Aprovado','1'),(168,'2','3','12','1','2',NULL,NULL,NULL,'354','2018-03-18 01:27:50','14',NULL,'Rejeitado','1'),(169,'1','3','12','1','2',NULL,NULL,NULL,'718683721361','2018-03-18 01:28:31','14',NULL,'Rejeitado','1'),(170,'0','3','12','1','2',NULL,NULL,NULL,'7777777777','2018-03-18 04:19:42','14',NULL,'Rejeitado','1'),(171,'0','3','12','1','2',NULL,NULL,NULL,'6666','2018-03-18 04:43:49','14',NULL,'Rejeitado','1'),(172,'0','3','12','1','2',NULL,NULL,NULL,'3456780','2018-03-18 05:43:39','14',NULL,'Rejeitado','1'),(173,'0','3','12','1','2',NULL,NULL,NULL,'45678','2018-03-18 06:44:20','14',NULL,'Aprovado','1'),(174,'0','3','12','1','2',NULL,NULL,NULL,'345678','2018-03-18 06:44:24','14',NULL,'Aprovado','1'),(175,'0','3','12','1','2',NULL,NULL,NULL,'23434','2018-03-19 04:35:16','14',NULL,'Aprovado','1'),(176,'0','3','12','1','2',NULL,NULL,NULL,'2132','2018-03-19 04:57:27','14',NULL,'Aprovado','1'),(177,'0','3','12','1','2',NULL,NULL,NULL,'23','2018-03-19 04:57:34','14',NULL,'Rejeitado','1'),(178,'0','3','12','1','2',NULL,NULL,NULL,'132','2018-03-19 04:57:57','14',NULL,'Rejeitado','1'),(179,'0','3','12','1','2',NULL,NULL,NULL,'2324324','2018-03-19 05:12:03','14',NULL,'Rejeitado','1'),(180,'0','3','12','1','2',NULL,NULL,NULL,'222111','2018-03-19 05:12:15','14',NULL,'Rejeitado','1'),(181,'0','3','12','1','2',NULL,NULL,NULL,'234324','2018-03-19 05:46:19','14',NULL,'Solicitado','1');
+-- --------------------------------------------------------
 
-UNLOCK TABLES;
-
-/*Table structure for table `tab_credito_2proposta` */
-
-DROP TABLE IF EXISTS `tab_credito_2proposta`;
+--
+-- Table structure for table `tab_credito_2proposta`
+--
 
 CREATE TABLE `tab_credito_2proposta` (
   `IdCredito` int(10) DEFAULT NULL,
@@ -155,30 +171,28 @@ CREATE TABLE `tab_credito_2proposta` (
   `DataReg` timestamp NULL DEFAULT NULL,
   `IdUsuario` int(10) DEFAULT NULL,
   `Posicao` varchar(255) DEFAULT NULL,
-  `IdSucursal` int(10) DEFAULT NULL,
-  KEY `CAvalista` (`IdAvalista`),
-  KEY `CodigoGestor` (`IdGestor`),
-  KEY `CodigoLinha` (`IdLinha`),
-  KEY `tab_AlunoCursoCodigoAluno` (`IdCredito`),
-  KEY `tab_AlunoCursoCodigoCurso` (`ValorAprovado`),
-  KEY `tab_AlunoCursoCodigoGestor` (`Prestacao`),
-  KEY `tab_Conta_PropostaCodigoUsuario` (`IdUsuario`)
+  `IdSucursal` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tab_credito_2proposta` */
+--
+-- Dumping data for table `tab_credito_2proposta`
+--
 
-LOCK TABLES `tab_credito_2proposta` WRITE;
+INSERT INTO `tab_credito_2proposta` (`IdCredito`, `IdCliente`, `IdAvalista`, `IdLinha`, `IdGestor`, `IdDestino`, `TaxaJuro`, `Prazo`, `Periodo`, `ValorAprovado`, `TotalGarantias`, `Prestacao`, `NumeroPrestacoes`, `DataReg`, `IdUsuario`, `Posicao`, `IdSucursal`) VALUES
+(1121, 68, NULL, NULL, NULL, NULL, 25, 2, NULL, 15000, NULL, 10416.67, 2, '2018-02-04 22:00:00', 1, NULL, NULL),
+(1122, 69, NULL, NULL, NULL, NULL, 10, 12, NULL, 20000, NULL, 2935.27, 12, '2018-01-03 22:00:00', 1, NULL, NULL),
+(1123, 68, NULL, NULL, NULL, NULL, 30, 3, NULL, 17000, NULL, 9360.65, 3, '2018-02-07 22:00:00', 1, NULL, NULL),
+(1124, 68, NULL, NULL, NULL, NULL, 25, 2, NULL, 10000, NULL, 6944.44, 2, '2018-02-07 22:00:00', 1, NULL, NULL),
+(1125, 69, NULL, NULL, NULL, NULL, 30, 3, NULL, 15000, NULL, 8259.4, 3, '2018-02-07 22:00:00', 1, NULL, NULL);
 
-insert  into `tab_credito_2proposta`(`IdCredito`,`IdCliente`,`IdAvalista`,`IdLinha`,`IdGestor`,`IdDestino`,`TaxaJuro`,`Prazo`,`Periodo`,`ValorAprovado`,`TotalGarantias`,`Prestacao`,`NumeroPrestacoes`,`DataReg`,`IdUsuario`,`Posicao`,`IdSucursal`) values (1121,68,NULL,NULL,NULL,NULL,25,2,NULL,15000,NULL,10416.67,2,'2018-02-05 00:00:00',1,NULL,NULL),(1122,69,NULL,NULL,NULL,NULL,10,12,NULL,20000,NULL,2935.27,12,'2018-01-04 00:00:00',1,NULL,NULL),(1123,68,NULL,NULL,NULL,NULL,30,3,NULL,17000,NULL,9360.65,3,'2018-02-08 00:00:00',1,NULL,NULL),(1124,68,NULL,NULL,NULL,NULL,25,2,NULL,10000,NULL,6944.44,2,'2018-02-08 00:00:00',1,NULL,NULL),(1125,69,NULL,NULL,NULL,NULL,30,3,NULL,15000,NULL,8259.4,3,'2018-02-08 00:00:00',1,NULL,NULL);
+-- --------------------------------------------------------
 
-UNLOCK TABLES;
-
-/*Table structure for table `tab_credito_4vigente` */
-
-DROP TABLE IF EXISTS `tab_credito_4vigente`;
+--
+-- Table structure for table `tab_credito_4vigente`
+--
 
 CREATE TABLE `tab_credito_4vigente` (
-  `IdCredito` int(10) NOT NULL AUTO_INCREMENT,
+  `IdCredito` int(10) NOT NULL,
   `IdCliente` int(10) DEFAULT NULL,
   `IdAvalista` int(10) DEFAULT NULL,
   `IdLinha` int(10) DEFAULT NULL,
@@ -196,98 +210,124 @@ CREATE TABLE `tab_credito_4vigente` (
   `Posicao` varchar(255) DEFAULT NULL,
   `Situacao` varchar(255) DEFAULT NULL,
   `IdSucursal` int(10) DEFAULT NULL,
-  `TotalGarantias` double DEFAULT NULL,
-  PRIMARY KEY (`IdCredito`),
-  KEY `CAvalista` (`IdAvalista`),
-  KEY `CodigoGestor` (`IdGestor`),
-  KEY `CodigoLinha` (`IdLinha`),
-  KEY `tab_AlunoCursoCodigoAluno` (`IdCredito`),
-  KEY `tab_AlunoCursoCodigoCurso` (`ValorAprovado`),
-  KEY `tab_AlunoCursoCodigoGestor` (`Prestacao`),
-  KEY `tab_Conta_PropostaCodigoUsuario` (`IdUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+  `TotalGarantias` double DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tab_credito_4vigente` */
+--
+-- Dumping data for table `tab_credito_4vigente`
+--
 
-LOCK TABLES `tab_credito_4vigente` WRITE;
+INSERT INTO `tab_credito_4vigente` (`IdCredito`, `IdCliente`, `IdAvalista`, `IdLinha`, `IdGestor`, `IdDestino`, `TaxaJuro`, `Prazo`, `Periodo`, `ValorSolicitado`, `DataReg`, `IdUsuario`, `Prestacao`, `NumeroPrestacoes`, `ValorAprovado`, `Posicao`, `Situacao`, `IdSucursal`, `TotalGarantias`) VALUES
+(11, 0, 1, 12, 2, 0, 1, 0, '0', 234215423, '2018-03-10 04:08:17', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(12, 0, 1, 12, 2, 0, 1, 0, '0', 23453425432, '2018-03-10 04:09:19', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(13, 0, 1, 12, 3, 0, 1, 0, '0', 3245, '2018-03-10 04:32:21', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(14, 0, 1, 12, 2, 0, 1, 0, '0', 3424, '2018-03-10 04:38:02', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(15, 0, 1, 12, 2, 0, 1, 0, '0', 3254, '2018-03-10 04:39:10', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(16, 0, 1, 12, 2, 0, 1, 0, '0', 345, '2018-03-10 04:40:06', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(17, 0, 1, 2, 12, 0, 1, 0, '0', 2345, '2018-03-10 04:43:20', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(18, 0, 1, 2, 12, 0, 1, 0, '0', 234, '2018-03-10 04:45:42', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(19, 0, 1, 2, 12, 0, 1, 0, '0', 2345, '2018-03-10 06:11:22', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(20, 0, 1, 2, 12, 0, 1, 0, '0', 4352, '2018-03-10 06:13:23', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(21, 0, 1, 2, 12, 0, 1, 0, '0', 12345, '2018-03-10 06:17:44', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(22, 0, 1, 2, 12, 0, 1, 0, '0', 12345, '2018-03-10 06:18:00', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(23, 0, 1, 2, 12, 0, 1, 0, '0', 12345, '2018-03-10 06:18:05', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(24, 0, 0, 3, 0, 0, 0, 0, '0', 0, '2018-03-10 06:18:54', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(25, 0, 1, 3, 12, 0, 1, 0, '0', 12345, '2018-03-10 07:12:41', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(26, 0, 1, 2, 12, 0, 1, 0, '0', 555, '2018-03-11 04:56:13', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(27, 0, 1, 5, 16, 0, 4, 0, '0', 456, '2018-03-11 05:53:16', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(28, 0, 1, 5, 16, 0, 4, 0, '0', 456, '2018-03-11 05:53:19', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(29, 0, 1, 2, 12, 0, 1, 0, '0', 567, '2018-03-11 05:53:32', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(30, 0, 1, 2, 12, 0, 1, 0, '0', 4567, '2018-03-11 05:53:37', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(31, 0, 1, 3, 12, 0, 1, 0, '0', 12345, '2018-03-11 05:53:41', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(32, 88, 1, 2, 12, 0, 1, 0, '0', 5566, '2018-03-11 05:53:51', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(33, 0, 1, 5, 16, 0, 4, 0, '0', 456, '2018-03-11 06:23:00', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(34, 0, 1, 5, 16, 0, 4, 0, '0', 456, '2018-03-11 06:26:17', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(35, 0, 1, 5, 16, 0, 4, 0, '0', 456, '2018-03-13 00:48:09', 0, NULL, NULL, NULL, '0', '0', 0, NULL),
+(36, 0, 1, 5, 16, 0, 4, 0, '0', 456, '2018-03-13 03:46:54', 0, NULL, NULL, NULL, '0', '0', 0, NULL);
 
-insert  into `tab_credito_4vigente`(`IdCredito`,`IdCliente`,`IdAvalista`,`IdLinha`,`IdGestor`,`IdDestino`,`TaxaJuro`,`Prazo`,`Periodo`,`ValorSolicitado`,`DataReg`,`IdUsuario`,`Prestacao`,`NumeroPrestacoes`,`ValorAprovado`,`Posicao`,`Situacao`,`IdSucursal`,`TotalGarantias`) values (11,0,1,12,2,0,1,0,'0',234215423,'2018-03-10 06:08:17',0,NULL,NULL,NULL,'0','0',0,NULL),(12,0,1,12,2,0,1,0,'0',23453425432,'2018-03-10 06:09:19',0,NULL,NULL,NULL,'0','0',0,NULL),(13,0,1,12,3,0,1,0,'0',3245,'2018-03-10 06:32:21',0,NULL,NULL,NULL,'0','0',0,NULL),(14,0,1,12,2,0,1,0,'0',3424,'2018-03-10 06:38:02',0,NULL,NULL,NULL,'0','0',0,NULL),(15,0,1,12,2,0,1,0,'0',3254,'2018-03-10 06:39:10',0,NULL,NULL,NULL,'0','0',0,NULL),(16,0,1,12,2,0,1,0,'0',345,'2018-03-10 06:40:06',0,NULL,NULL,NULL,'0','0',0,NULL),(17,0,1,2,12,0,1,0,'0',2345,'2018-03-10 06:43:20',0,NULL,NULL,NULL,'0','0',0,NULL),(18,0,1,2,12,0,1,0,'0',234,'2018-03-10 06:45:42',0,NULL,NULL,NULL,'0','0',0,NULL),(19,0,1,2,12,0,1,0,'0',2345,'2018-03-10 08:11:22',0,NULL,NULL,NULL,'0','0',0,NULL),(20,0,1,2,12,0,1,0,'0',4352,'2018-03-10 08:13:23',0,NULL,NULL,NULL,'0','0',0,NULL),(21,0,1,2,12,0,1,0,'0',12345,'2018-03-10 08:17:44',0,NULL,NULL,NULL,'0','0',0,NULL),(22,0,1,2,12,0,1,0,'0',12345,'2018-03-10 08:18:00',0,NULL,NULL,NULL,'0','0',0,NULL),(23,0,1,2,12,0,1,0,'0',12345,'2018-03-10 08:18:05',0,NULL,NULL,NULL,'0','0',0,NULL),(24,0,0,3,0,0,0,0,'0',0,'2018-03-10 08:18:54',0,NULL,NULL,NULL,'0','0',0,NULL),(25,0,1,3,12,0,1,0,'0',12345,'2018-03-10 09:12:41',0,NULL,NULL,NULL,'0','0',0,NULL),(26,0,1,2,12,0,1,0,'0',555,'2018-03-11 06:56:13',0,NULL,NULL,NULL,'0','0',0,NULL),(27,0,1,5,16,0,4,0,'0',456,'2018-03-11 07:53:16',0,NULL,NULL,NULL,'0','0',0,NULL),(28,0,1,5,16,0,4,0,'0',456,'2018-03-11 07:53:19',0,NULL,NULL,NULL,'0','0',0,NULL),(29,0,1,2,12,0,1,0,'0',567,'2018-03-11 07:53:32',0,NULL,NULL,NULL,'0','0',0,NULL),(30,0,1,2,12,0,1,0,'0',4567,'2018-03-11 07:53:37',0,NULL,NULL,NULL,'0','0',0,NULL),(31,0,1,3,12,0,1,0,'0',12345,'2018-03-11 07:53:41',0,NULL,NULL,NULL,'0','0',0,NULL),(32,88,1,2,12,0,1,0,'0',5566,'2018-03-11 07:53:51',0,NULL,NULL,NULL,'0','0',0,NULL),(33,0,1,5,16,0,4,0,'0',456,'2018-03-11 08:23:00',0,NULL,NULL,NULL,'0','0',0,NULL),(34,0,1,5,16,0,4,0,'0',456,'2018-03-11 08:26:17',0,NULL,NULL,NULL,'0','0',0,NULL),(35,0,1,5,16,0,4,0,'0',456,'2018-03-13 02:48:09',0,NULL,NULL,NULL,'0','0',0,NULL),(36,0,1,5,16,0,4,0,'0',456,'2018-03-13 05:46:54',0,NULL,NULL,NULL,'0','0',0,NULL);
+-- --------------------------------------------------------
 
-UNLOCK TABLES;
-
-/*Table structure for table `tab_credito_5abate` */
-
-DROP TABLE IF EXISTS `tab_credito_5abate`;
+--
+-- Table structure for table `tab_credito_5abate`
+--
 
 CREATE TABLE `tab_credito_5abate` (
-  `CAbate` int(10) NOT NULL AUTO_INCREMENT,
+  `CAbate` int(10) NOT NULL,
   `CCliente` int(10) DEFAULT NULL,
   `CCredito` int(10) DEFAULT NULL,
   `DataAbate` timestamp NULL DEFAULT NULL,
   `CUsuario` int(10) DEFAULT NULL,
   `FormadeAbate` varchar(255) DEFAULT NULL,
-  `CEscritorio` int(10) DEFAULT NULL,
-  PRIMARY KEY (`CAbate`),
-  KEY `tab_Conta_AbateCodigoConta` (`CCredito`),
-  KEY `tab_Conta_AbateCodigoUsuario` (`CUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
+  `CEscritorio` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tab_credito_5abate` */
+--
+-- Dumping data for table `tab_credito_5abate`
+--
 
-LOCK TABLES `tab_credito_5abate` WRITE;
+INSERT INTO `tab_credito_5abate` (`CAbate`, `CCliente`, `CCredito`, `DataAbate`, `CUsuario`, `FormadeAbate`, `CEscritorio`) VALUES
+(39, 69, 1122, '2018-01-31 22:00:00', 1, 'ERRO TÉCNICO', NULL),
+(40, 68, 1121, '2018-01-31 22:00:00', 1, 'ERRO TÉCNICO', NULL),
+(41, 68, 1121, '2018-02-04 22:00:00', 1, 'ERRO TÉCNICO', NULL),
+(42, 68, 1121, '2018-02-04 22:00:00', 1, 'ERRO TÉCNICO', NULL),
+(43, 68, 1121, '2018-02-04 22:00:00', 1, 'ERRO TÉCNICO', NULL),
+(44, 68, 1121, '2018-02-04 22:00:00', 1, 'ERRO TÉCNICO', NULL),
+(45, 68, 1121, '2018-02-04 22:00:00', 1, 'ERRO TÉCNICO', NULL),
+(46, 69, 1122, '2018-02-04 22:00:00', 1, 'ERRO TÉCNICO', NULL),
+(47, 69, 1122, '2018-02-04 22:00:00', 1, 'ERRO TÉCNICO', NULL);
 
-insert  into `tab_credito_5abate`(`CAbate`,`CCliente`,`CCredito`,`DataAbate`,`CUsuario`,`FormadeAbate`,`CEscritorio`) values (39,69,1122,'2018-02-01 00:00:00',1,'ERRO TÉCNICO',NULL),(40,68,1121,'2018-02-01 00:00:00',1,'ERRO TÉCNICO',NULL),(41,68,1121,'2018-02-05 00:00:00',1,'ERRO TÉCNICO',NULL),(42,68,1121,'2018-02-05 00:00:00',1,'ERRO TÉCNICO',NULL),(43,68,1121,'2018-02-05 00:00:00',1,'ERRO TÉCNICO',NULL),(44,68,1121,'2018-02-05 00:00:00',1,'ERRO TÉCNICO',NULL),(45,68,1121,'2018-02-05 00:00:00',1,'ERRO TÉCNICO',NULL),(46,69,1122,'2018-02-05 00:00:00',1,'ERRO TÉCNICO',NULL),(47,69,1122,'2018-02-05 00:00:00',1,'ERRO TÉCNICO',NULL);
+-- --------------------------------------------------------
 
-UNLOCK TABLES;
-
-/*Table structure for table `tab_credito_6pago` */
-
-DROP TABLE IF EXISTS `tab_credito_6pago`;
+--
+-- Table structure for table `tab_credito_6pago`
+--
 
 CREATE TABLE `tab_credito_6pago` (
-  `CCreditoPago` int(10) NOT NULL AUTO_INCREMENT,
+  `CCreditoPago` int(10) NOT NULL,
   `CCliente` int(10) DEFAULT NULL,
   `CCredito` int(10) DEFAULT NULL,
   `DataReg` timestamp NULL DEFAULT NULL,
   `CUsuario` int(10) DEFAULT NULL,
   `Estado` varchar(255) DEFAULT NULL,
-  `CEscritorio` int(10) DEFAULT NULL,
-  PRIMARY KEY (`CCreditoPago`),
-  KEY `tab_Conta_PagaCodigoConta` (`CCredito`),
-  KEY `tab_Conta_PagaCodigoUsuario` (`CUsuario`)
+  `CEscritorio` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tab_credito_6pago` */
+-- --------------------------------------------------------
 
-LOCK TABLES `tab_credito_6pago` WRITE;
-
-UNLOCK TABLES;
-
-/*Table structure for table `tab_credito_7aprovado` */
-
-DROP TABLE IF EXISTS `tab_credito_7aprovado`;
+--
+-- Table structure for table `tab_credito_7aprovado`
+--
 
 CREATE TABLE `tab_credito_7aprovado` (
   `IdCliente` int(10) DEFAULT NULL,
   `IdCredito` varchar(50) DEFAULT NULL,
   `DataAprovado` timestamp NULL DEFAULT NULL,
   `IdUsuario` varchar(50) DEFAULT NULL,
-  `IdSucursal` varchar(50) DEFAULT NULL,
-  KEY `tab_Conta_RejeitadaCodigoConta` (`IdCredito`),
-  KEY `tab_Conta_RejeitadaCodigoUsuario` (`IdUsuario`)
+  `IdSucursal` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tab_credito_7aprovado` */
+--
+-- Dumping data for table `tab_credito_7aprovado`
+--
 
-LOCK TABLES `tab_credito_7aprovado` WRITE;
+INSERT INTO `tab_credito_7aprovado` (`IdCliente`, `IdCredito`, `DataAprovado`, `IdUsuario`, `IdSucursal`) VALUES
+(0, '172', '2018-03-18 04:39:41', '14', '1'),
+(0, '172', '2018-03-18 04:43:06', '14', '1'),
+(0, '173', '2018-03-18 04:44:30', '14', '1'),
+(0, '174', '2018-03-18 04:46:25', '14', '1'),
+(3, '167', '2018-03-18 06:25:20', '14', '1'),
+(3, '167', '2018-03-18 06:25:22', '14', '1'),
+(0, '175', '2018-03-20 01:42:52', '14', '1'),
+(0, '175', '2018-03-20 01:45:49', '14', '1'),
+(0, '176', '2018-03-28 04:46:28', '14', '1'),
+(0, '176', '2018-03-28 04:46:32', '14', '1'),
+(0, '177', '2018-03-28 04:46:34', '14', '1');
 
-insert  into `tab_credito_7aprovado`(`IdCliente`,`IdCredito`,`DataAprovado`,`IdUsuario`,`IdSucursal`) values (0,'172','2018-03-18 06:39:41','14','1'),(0,'172','2018-03-18 06:43:06','14','1'),(0,'173','2018-03-18 06:44:30','14','1'),(0,'174','2018-03-18 06:46:25','14','1'),(3,'167','2018-03-18 08:25:20','14','1'),(3,'167','2018-03-18 08:25:22','14','1'),(0,'175','2018-03-20 03:42:52','14','1'),(0,'175','2018-03-20 03:45:49','14','1'),(0,'176','2018-03-28 06:46:28','14','1'),(0,'176','2018-03-28 06:46:32','14','1'),(0,'177','2018-03-28 06:46:34','14','1');
+-- --------------------------------------------------------
 
-UNLOCK TABLES;
-
-/*Table structure for table `tab_credito_7rejeitado` */
-
-DROP TABLE IF EXISTS `tab_credito_7rejeitado`;
+--
+-- Table structure for table `tab_credito_7rejeitado`
+--
 
 CREATE TABLE `tab_credito_7rejeitado` (
   `IdCliente` int(10) DEFAULT NULL,
@@ -295,23 +335,49 @@ CREATE TABLE `tab_credito_7rejeitado` (
   `IdMotivo` varchar(50) DEFAULT NULL,
   `DataRejeita` timestamp NULL DEFAULT NULL,
   `IdUsuario` varchar(50) DEFAULT NULL,
-  `IdSucursal` varchar(50) DEFAULT NULL,
-  KEY `tab_Conta_RejeitadaCodigoConta` (`IdCredito`),
-  KEY `tab_Conta_RejeitadaCodigoMotivo` (`IdMotivo`),
-  KEY `tab_Conta_RejeitadaCodigoUsuario` (`IdUsuario`)
+  `IdSucursal` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tab_credito_7rejeitado` */
+--
+-- Dumping data for table `tab_credito_7rejeitado`
+--
 
-LOCK TABLES `tab_credito_7rejeitado` WRITE;
+INSERT INTO `tab_credito_7rejeitado` (`IdCliente`, `IdCredito`, `IdMotivo`, `DataRejeita`, `IdUsuario`, `IdSucursal`) VALUES
+(0, '0', '', '2018-03-17 23:39:36', '14', '1'),
+(0, '0', '', '2018-03-17 23:40:00', '14', '1'),
+(0, '', '', '2018-03-17 23:41:56', '14', '1'),
+(0, '', '', '2018-03-18 00:00:04', '14', '1'),
+(0, '', '', '2018-03-18 00:00:51', '14', '1'),
+(0, '', '', '2018-03-18 00:08:10', '14', '1'),
+(0, '', '', '2018-03-18 00:12:50', '14', '1'),
+(0, '', '', '2018-03-18 00:13:42', '14', '1'),
+(0, '', '', '2018-03-18 00:14:07', '14', '1'),
+(0, '', '', '2018-03-18 00:15:11', '14', '1'),
+(0, '0', '', '2018-03-18 00:18:33', '14', '1'),
+(0, '0', '', '2018-03-18 00:18:47', '14', '1'),
+(0, '0', '', '2018-03-18 00:19:09', '14', '1'),
+(0, '0', '', '2018-03-18 01:54:56', '14', '1'),
+(0, '0', '', '2018-03-18 01:55:11', '14', '1'),
+(0, '0', '', '2018-03-18 01:55:23', '14', '1'),
+(0, '0', '', '2018-03-18 01:58:55', '14', '1'),
+(0, '0', '', '2018-03-18 02:05:59', '14', '1'),
+(0, '0', '', '2018-03-18 02:06:01', '14', '1'),
+(0, '0', '', '2018-03-18 02:06:02', '14', '1'),
+(0, '0', '', '2018-03-18 02:06:04', '14', '1'),
+(0, '0', '', '2018-03-18 02:43:20', '14', '1'),
+(0, '0', '', '2018-03-18 02:43:22', '14', '1'),
+(0, '0', '', '2018-03-18 02:43:56', '14', '1'),
+(0, '0', '', '2018-03-18 04:14:00', '14', '1'),
+(0, '0', '', '2018-03-28 04:46:36', '14', '1'),
+(0, '0', '', '2018-03-28 04:46:37', '14', '1'),
+(0, '0', '', '2018-03-28 04:46:39', '14', '1'),
+(0, '0', '', '2018-03-28 04:46:42', '14', '1');
 
-insert  into `tab_credito_7rejeitado`(`IdCliente`,`IdCredito`,`IdMotivo`,`DataRejeita`,`IdUsuario`,`IdSucursal`) values (0,'0','','2018-03-18 01:39:36','14','1'),(0,'0','','2018-03-18 01:40:00','14','1'),(0,'','','2018-03-18 01:41:56','14','1'),(0,'','','2018-03-18 02:00:04','14','1'),(0,'','','2018-03-18 02:00:51','14','1'),(0,'','','2018-03-18 02:08:10','14','1'),(0,'','','2018-03-18 02:12:50','14','1'),(0,'','','2018-03-18 02:13:42','14','1'),(0,'','','2018-03-18 02:14:07','14','1'),(0,'','','2018-03-18 02:15:11','14','1'),(0,'0','','2018-03-18 02:18:33','14','1'),(0,'0','','2018-03-18 02:18:47','14','1'),(0,'0','','2018-03-18 02:19:09','14','1'),(0,'0','','2018-03-18 03:54:56','14','1'),(0,'0','','2018-03-18 03:55:11','14','1'),(0,'0','','2018-03-18 03:55:23','14','1'),(0,'0','','2018-03-18 03:58:55','14','1'),(0,'0','','2018-03-18 04:05:59','14','1'),(0,'0','','2018-03-18 04:06:01','14','1'),(0,'0','','2018-03-18 04:06:02','14','1'),(0,'0','','2018-03-18 04:06:04','14','1'),(0,'0','','2018-03-18 04:43:20','14','1'),(0,'0','','2018-03-18 04:43:22','14','1'),(0,'0','','2018-03-18 04:43:56','14','1'),(0,'0','','2018-03-18 06:14:00','14','1'),(0,'0','','2018-03-28 06:46:36','14','1'),(0,'0','','2018-03-28 06:46:37','14','1'),(0,'0','','2018-03-28 06:46:39','14','1'),(0,'0','','2018-03-28 06:46:42','14','1');
+-- --------------------------------------------------------
 
-UNLOCK TABLES;
-
-/*Table structure for table `tab_desembolso` */
-
-DROP TABLE IF EXISTS `tab_desembolso`;
+--
+-- Table structure for table `tab_desembolso`
+--
 
 CREATE TABLE `tab_desembolso` (
   `CCredito` int(10) DEFAULT NULL,
@@ -321,23 +387,25 @@ CREATE TABLE `tab_desembolso` (
   `Montante` double DEFAULT NULL,
   `DataReg` timestamp NULL DEFAULT NULL,
   `CUsuario` int(10) DEFAULT NULL,
-  `CEscritorio` int(10) DEFAULT NULL,
-  KEY `tab_DesembolsoCodigoBanco` (`CBanco`),
-  KEY `tab_DesembolsoCodigoTipoDesembolso` (`CFormaPagamento`),
-  KEY `tab_DesembolsoCodigoUsuario` (`CUsuario`)
+  `CEscritorio` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tab_desembolso` */
+--
+-- Dumping data for table `tab_desembolso`
+--
 
-LOCK TABLES `tab_desembolso` WRITE;
+INSERT INTO `tab_desembolso` (`CCredito`, `CCliente`, `CFormaPagamento`, `CBanco`, `Montante`, `DataReg`, `CUsuario`, `CEscritorio`) VALUES
+(1121, 68, 1, 13, 14800, '2018-02-04 22:00:00', 1, NULL),
+(1122, 69, 1, 13, 19800, '2017-12-01 22:00:00', 1, NULL),
+(1123, 68, 1, 13, 16800, '2018-01-04 22:00:00', 1, NULL),
+(1124, 68, 1, 13, 9800, '2018-01-03 22:00:00', 1, NULL),
+(1125, 69, 1, 13, 14800, '2018-02-07 22:00:00', 1, NULL);
 
-insert  into `tab_desembolso`(`CCredito`,`CCliente`,`CFormaPagamento`,`CBanco`,`Montante`,`DataReg`,`CUsuario`,`CEscritorio`) values (1121,68,1,13,14800,'2018-02-05 00:00:00',1,NULL),(1122,69,1,13,19800,'2017-12-02 00:00:00',1,NULL),(1123,68,1,13,16800,'2018-01-05 00:00:00',1,NULL),(1124,68,1,13,9800,'2018-01-04 00:00:00',1,NULL),(1125,69,1,13,14800,'2018-02-08 00:00:00',1,NULL);
+-- --------------------------------------------------------
 
-UNLOCK TABLES;
-
-/*Table structure for table `tab_desembolso_estorno` */
-
-DROP TABLE IF EXISTS `tab_desembolso_estorno`;
+--
+-- Table structure for table `tab_desembolso_estorno`
+--
 
 CREATE TABLE `tab_desembolso_estorno` (
   `CCredito` int(10) DEFAULT NULL,
@@ -349,49 +417,41 @@ CREATE TABLE `tab_desembolso_estorno` (
   `Total` double DEFAULT NULL,
   `DataReg` timestamp NULL DEFAULT NULL,
   `CUsuario` int(10) DEFAULT NULL,
-  `CEscritorio` int(10) DEFAULT NULL,
-  KEY `CBanco` (`CBanco`),
-  KEY `CFormaPagamento` (`CFormaPagamento`),
-  KEY `CUsuario` (`CUsuario`),
-  KEY `tab_Desembolso_EstornoCodigoCliente` (`CCliente`),
-  KEY `tab_Desembolso_EstornoCodigoConta` (`CCredito`)
+  `CEscritorio` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tab_desembolso_estorno` */
+--
+-- Dumping data for table `tab_desembolso_estorno`
+--
 
-LOCK TABLES `tab_desembolso_estorno` WRITE;
+INSERT INTO `tab_desembolso_estorno` (`CCredito`, `CCliente`, `CFormaPagamento`, `CBanco`, `Montante`, `Preparo`, `Total`, `DataReg`, `CUsuario`, `CEscritorio`) VALUES
+(1121, 68, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1122, 69, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
-insert  into `tab_desembolso_estorno`(`CCredito`,`CCliente`,`CFormaPagamento`,`CBanco`,`Montante`,`Preparo`,`Total`,`DataReg`,`CUsuario`,`CEscritorio`) values (1121,68,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(1122,69,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+-- --------------------------------------------------------
 
-UNLOCK TABLES;
-
-/*Table structure for table `tab_despesas` */
-
-DROP TABLE IF EXISTS `tab_despesas`;
+--
+-- Table structure for table `tab_despesas`
+--
 
 CREATE TABLE `tab_despesas` (
-  `CDespesa` int(10) NOT NULL AUTO_INCREMENT,
+  `CDespesa` int(10) NOT NULL,
   `CFluxoCaixa` int(10) DEFAULT NULL,
   `Descricao` varchar(255) DEFAULT NULL,
   `Montante` double DEFAULT NULL,
   `DataReg` timestamp NULL DEFAULT NULL,
   `CUsuario` int(10) DEFAULT NULL,
-  `CEscritorio` int(10) DEFAULT NULL,
-  PRIMARY KEY (`CDespesa`)
+  `CEscritorio` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tab_despesas` */
+-- --------------------------------------------------------
 
-LOCK TABLES `tab_despesas` WRITE;
-
-UNLOCK TABLES;
-
-/*Table structure for table `tab_fluxo` */
-
-DROP TABLE IF EXISTS `tab_fluxo`;
+--
+-- Table structure for table `tab_fluxo`
+--
 
 CREATE TABLE `tab_fluxo` (
-  `CFluxo` int(10) NOT NULL AUTO_INCREMENT,
+  `CFluxo` int(10) NOT NULL,
   `DataReg` timestamp NULL DEFAULT NULL,
   `CLancamentoCaixa` int(10) DEFAULT NULL,
   `CBanco` int(10) DEFAULT NULL,
@@ -405,33 +465,36 @@ CREATE TABLE `tab_fluxo` (
   `CPrestacao` int(10) DEFAULT NULL,
   `CPrestacaoPaga` int(10) DEFAULT NULL,
   `IDFolha` int(10) DEFAULT NULL,
-  `CEscritorio` int(10) DEFAULT NULL,
-  PRIMARY KEY (`CFluxo`),
-  KEY `IDFolha` (`IDFolha`),
-  KEY `tab_FluxoCaixaCodigoBanco` (`CBanco`),
-  KEY `tab_FluxoCaixaCodigoCliente` (`CCliente`),
-  KEY `tab_FluxoCaixaCodigoConta` (`CCredito`),
-  KEY `tab_FluxoCaixaCodigoLancCaixa` (`CLancamentoCaixa`),
-  KEY `tab_FluxoCaixaCodigoPrestacao` (`CPrestacao`),
-  KEY `tab_FluxoCaixaCodigoPrestacaoRealizado` (`CPrestacaoPaga`),
-  KEY `tab_FluxoCaixaCodigoTipoDesembolso` (`CFormaPagamento`),
-  KEY `tab_FluxoCaixaCodigoUsuario` (`CUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2368 DEFAULT CHARSET=utf8;
+  `CEscritorio` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tab_fluxo` */
+--
+-- Dumping data for table `tab_fluxo`
+--
 
-LOCK TABLES `tab_fluxo` WRITE;
+INSERT INTO `tab_fluxo` (`CFluxo`, `DataReg`, `CLancamentoCaixa`, `CBanco`, `CFormaPagamento`, `CUsuario`, `Descricao`, `Entrada`, `Saida`, `CCliente`, `CCredito`, `CPrestacao`, `CPrestacaoPaga`, `IDFolha`, `CEscritorio`) VALUES
+(2350, '2018-01-31 22:00:00', 8, 13, 1, 1, 'REFORÇO', 200000, 0, 0, 0, NULL, NULL, NULL, NULL),
+(2354, '2018-02-04 22:00:00', 2, 13, 1, 1, 'DESEMBOLSO, VERONICA ALEXANDRE,CRÉDITO 2 MESES.', 0, 14800, 68, 1121, NULL, NULL, NULL, NULL),
+(2355, '2018-02-04 22:00:00', 1, 13, 1, 1, 'PREPARO AUTOMATICO, VERONICA ALEXANDRE, CRÉDITO 2 MESES.', 200, 0, 68, 1121, NULL, NULL, NULL, NULL),
+(2356, '2018-02-04 22:00:00', 7, 5, 1, 1, 'Prestação Completa, VERONICA ALEXANDRE, CRÉDITO 2 MESES', 10416.67, 0, 68, 1121, 1261, 813, NULL, NULL),
+(2359, '2018-02-04 22:00:00', 2, 13, 1, 1, 'DESEMBOLSO, Joaquim De Jesus Mucavela,LINHA ESPECIAL.', 0, 19800, 69, 1122, NULL, NULL, NULL, NULL),
+(2360, '2018-02-04 22:00:00', 1, 13, 1, 1, 'PREPARO AUTOMATICO, Joaquim De Jesus Mucavela, LINHA ESPECIAL.', 200, 0, 69, 1122, NULL, NULL, NULL, NULL),
+(2361, '2018-02-07 22:00:00', 2, 13, 1, 1, 'DESEMBOLSO, VERONICA ALEXANDRE,CRÉDITO 3 MÊSES.', 0, 16800, 68, 1123, NULL, NULL, NULL, NULL),
+(2362, '2018-02-07 22:00:00', 1, 13, 1, 1, 'PREPARO AUTOMATICO, VERONICA ALEXANDRE, CRÉDITO 3 MÊSES.', 200, 0, 68, 1123, NULL, NULL, NULL, NULL),
+(2363, '2018-02-07 22:00:00', 2, 13, 1, 1, 'DESEMBOLSO, VERONICA ALEXANDRE,CRÉDITO 2 MESES.', 0, 9800, 68, 1124, NULL, NULL, NULL, NULL),
+(2364, '2018-02-07 22:00:00', 1, 13, 1, 1, 'PREPARO AUTOMATICO, VERONICA ALEXANDRE, CRÉDITO 2 MESES.', 200, 0, 68, 1124, NULL, NULL, NULL, NULL),
+(2365, '2018-02-07 22:00:00', 7, 5, 1, 1, 'Prestação Completa Mora, VERONICA ALEXANDRE, CRÉDITO 2 MESES', 7500, 0, 68, 1124, 1319, 814, NULL, NULL),
+(2366, '2018-02-07 22:00:00', 2, 13, 1, 1, 'DESEMBOLSO, Joaquim De Jesus Mucavela,CRÉDITO 3 MÊSES.', 0, 14800, 69, 1125, NULL, NULL, NULL, NULL),
+(2367, '2018-02-07 22:00:00', 1, 13, 1, 1, 'PREPARO AUTOMATICO, Joaquim De Jesus Mucavela, CRÉDITO 3 MÊSES.', 200, 0, 69, 1125, NULL, NULL, NULL, NULL);
 
-insert  into `tab_fluxo`(`CFluxo`,`DataReg`,`CLancamentoCaixa`,`CBanco`,`CFormaPagamento`,`CUsuario`,`Descricao`,`Entrada`,`Saida`,`CCliente`,`CCredito`,`CPrestacao`,`CPrestacaoPaga`,`IDFolha`,`CEscritorio`) values (2350,'2018-02-01 00:00:00',8,13,1,1,'REFORÇO',200000,0,0,0,NULL,NULL,NULL,NULL),(2354,'2018-02-05 00:00:00',2,13,1,1,'DESEMBOLSO, VERONICA ALEXANDRE,CRÉDITO 2 MESES.',0,14800,68,1121,NULL,NULL,NULL,NULL),(2355,'2018-02-05 00:00:00',1,13,1,1,'PREPARO AUTOMATICO, VERONICA ALEXANDRE, CRÉDITO 2 MESES.',200,0,68,1121,NULL,NULL,NULL,NULL),(2356,'2018-02-05 00:00:00',7,5,1,1,'Prestação Completa, VERONICA ALEXANDRE, CRÉDITO 2 MESES',10416.67,0,68,1121,1261,813,NULL,NULL),(2359,'2018-02-05 00:00:00',2,13,1,1,'DESEMBOLSO, Joaquim De Jesus Mucavela,LINHA ESPECIAL.',0,19800,69,1122,NULL,NULL,NULL,NULL),(2360,'2018-02-05 00:00:00',1,13,1,1,'PREPARO AUTOMATICO, Joaquim De Jesus Mucavela, LINHA ESPECIAL.',200,0,69,1122,NULL,NULL,NULL,NULL),(2361,'2018-02-08 00:00:00',2,13,1,1,'DESEMBOLSO, VERONICA ALEXANDRE,CRÉDITO 3 MÊSES.',0,16800,68,1123,NULL,NULL,NULL,NULL),(2362,'2018-02-08 00:00:00',1,13,1,1,'PREPARO AUTOMATICO, VERONICA ALEXANDRE, CRÉDITO 3 MÊSES.',200,0,68,1123,NULL,NULL,NULL,NULL),(2363,'2018-02-08 00:00:00',2,13,1,1,'DESEMBOLSO, VERONICA ALEXANDRE,CRÉDITO 2 MESES.',0,9800,68,1124,NULL,NULL,NULL,NULL),(2364,'2018-02-08 00:00:00',1,13,1,1,'PREPARO AUTOMATICO, VERONICA ALEXANDRE, CRÉDITO 2 MESES.',200,0,68,1124,NULL,NULL,NULL,NULL),(2365,'2018-02-08 00:00:00',7,5,1,1,'Prestação Completa Mora, VERONICA ALEXANDRE, CRÉDITO 2 MESES',7500,0,68,1124,1319,814,NULL,NULL),(2366,'2018-02-08 00:00:00',2,13,1,1,'DESEMBOLSO, Joaquim De Jesus Mucavela,CRÉDITO 3 MÊSES.',0,14800,69,1125,NULL,NULL,NULL,NULL),(2367,'2018-02-08 00:00:00',1,13,1,1,'PREPARO AUTOMATICO, Joaquim De Jesus Mucavela, CRÉDITO 3 MÊSES.',200,0,69,1125,NULL,NULL,NULL,NULL);
+-- --------------------------------------------------------
 
-UNLOCK TABLES;
-
-/*Table structure for table `tab_folhasalario` */
-
-DROP TABLE IF EXISTS `tab_folhasalario`;
+--
+-- Table structure for table `tab_folhasalario`
+--
 
 CREATE TABLE `tab_folhasalario` (
-  `IDFolha` int(10) NOT NULL AUTO_INCREMENT,
+  `IDFolha` int(10) NOT NULL,
   `CUsuario` int(10) DEFAULT NULL,
   `Nome` varchar(255) DEFAULT NULL,
   `Cargo` varchar(255) DEFAULT NULL,
@@ -443,61 +506,45 @@ CREATE TABLE `tab_folhasalario` (
   `Desconto` double DEFAULT NULL,
   `DataReg` timestamp NULL DEFAULT NULL,
   `MesAno` varchar(255) DEFAULT NULL,
-  `CEscritorio` int(10) DEFAULT NULL,
-  PRIMARY KEY (`IDFolha`),
-  KEY `CodigoUsuario` (`CUsuario`)
+  `CEscritorio` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tab_folhasalario` */
+-- --------------------------------------------------------
 
-LOCK TABLES `tab_folhasalario` WRITE;
-
-UNLOCK TABLES;
-
-/*Table structure for table `tab_folhasalario_lancbeneficio` */
-
-DROP TABLE IF EXISTS `tab_folhasalario_lancbeneficio`;
+--
+-- Table structure for table `tab_folhasalario_lancbeneficio`
+--
 
 CREATE TABLE `tab_folhasalario_lancbeneficio` (
   `IDFolha` int(10) DEFAULT NULL,
   `CUsuario` int(10) DEFAULT NULL,
   `CBeneficio` varchar(255) DEFAULT NULL,
   `Montante` double DEFAULT NULL,
-  `CEscritorio` int(10) DEFAULT NULL,
-  KEY `IDFolha` (`IDFolha`)
+  `CEscritorio` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tab_folhasalario_lancbeneficio` */
+-- --------------------------------------------------------
 
-LOCK TABLES `tab_folhasalario_lancbeneficio` WRITE;
-
-UNLOCK TABLES;
-
-/*Table structure for table `tab_folhasalario_lancdesconto` */
-
-DROP TABLE IF EXISTS `tab_folhasalario_lancdesconto`;
+--
+-- Table structure for table `tab_folhasalario_lancdesconto`
+--
 
 CREATE TABLE `tab_folhasalario_lancdesconto` (
   `IDFolha` int(10) DEFAULT NULL,
   `CUsuario` int(10) DEFAULT NULL,
   `CDesconto` varchar(255) DEFAULT NULL,
   `Montante` double DEFAULT NULL,
-  `CEscritorio` int(10) DEFAULT NULL,
-  KEY `IDFolha` (`IDFolha`)
+  `CEscritorio` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tab_folhasalario_lancdesconto` */
+-- --------------------------------------------------------
 
-LOCK TABLES `tab_folhasalario_lancdesconto` WRITE;
-
-UNLOCK TABLES;
-
-/*Table structure for table `tab_garantias_avalista` */
-
-DROP TABLE IF EXISTS `tab_garantias_avalista`;
+--
+-- Table structure for table `tab_garantias_avalista`
+--
 
 CREATE TABLE `tab_garantias_avalista` (
-  `CGarantiaAvalista` int(10) NOT NULL AUTO_INCREMENT,
+  `CGarantiaAvalista` int(10) NOT NULL,
   `CAvalista` int(10) DEFAULT NULL,
   `CCliente` int(10) DEFAULT NULL,
   `CTipoGarantia` int(10) DEFAULT NULL,
@@ -505,50 +552,39 @@ CREATE TABLE `tab_garantias_avalista` (
   `Montante` double DEFAULT NULL,
   `DataReg` timestamp NULL DEFAULT NULL,
   `CUsuario` int(10) DEFAULT NULL,
-  `CEscritorio` int(10) DEFAULT NULL,
-  PRIMARY KEY (`CGarantiaAvalista`),
-  KEY `tab_Garantias_AvalistaCodigoAvalista` (`CAvalista`),
-  KEY `tab_GarantiasCodigoCliente` (`CCliente`),
-  KEY `tab_GarantiasCodigoGarantia` (`CTipoGarantia`),
-  KEY `tab_GarantiasCodigoUsuario` (`CUsuario`)
+  `CEscritorio` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tab_garantias_avalista` */
+-- --------------------------------------------------------
 
-LOCK TABLES `tab_garantias_avalista` WRITE;
-
-UNLOCK TABLES;
-
-/*Table structure for table `tab_garantias_cliente` */
-
-DROP TABLE IF EXISTS `tab_garantias_cliente`;
+--
+-- Table structure for table `tab_garantias_cliente`
+--
 
 CREATE TABLE `tab_garantias_cliente` (
-  `CGarantiaCliente` int(10) NOT NULL AUTO_INCREMENT,
+  `CGarantiaCliente` int(10) NOT NULL,
   `CCliente` int(10) DEFAULT NULL,
   `CTipoGarantia` int(10) DEFAULT NULL,
   `Descricao` varchar(150) DEFAULT NULL,
   `Montante` double DEFAULT NULL,
   `DataReg` timestamp NULL DEFAULT NULL,
   `CUsuario` int(10) DEFAULT NULL,
-  `CEscritorio` int(10) DEFAULT NULL,
-  PRIMARY KEY (`CGarantiaCliente`),
-  KEY `tab_GarantiasCodigoCliente` (`CCliente`),
-  KEY `tab_GarantiasCodigoGarantia` (`CTipoGarantia`),
-  KEY `tab_GarantiasCodigoUsuario` (`CUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=567 DEFAULT CHARSET=utf8;
+  `CEscritorio` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tab_garantias_cliente` */
+--
+-- Dumping data for table `tab_garantias_cliente`
+--
 
-LOCK TABLES `tab_garantias_cliente` WRITE;
+INSERT INTO `tab_garantias_cliente` (`CGarantiaCliente`, `CCliente`, `CTipoGarantia`, `Descricao`, `Montante`, `DataReg`, `CUsuario`, `CEscritorio`) VALUES
+(565, 68, 7, 'FOGAO', 120000, '2018-01-31 22:00:00', 1, NULL),
+(566, 69, 6, 'FSDASD', 20000, '2018-01-31 22:00:00', 1, NULL);
 
-insert  into `tab_garantias_cliente`(`CGarantiaCliente`,`CCliente`,`CTipoGarantia`,`Descricao`,`Montante`,`DataReg`,`CUsuario`,`CEscritorio`) values (565,68,7,'FOGAO',120000,'2018-02-01 00:00:00',1,NULL),(566,69,6,'FSDASD',20000,'2018-02-01 00:00:00',1,NULL);
+-- --------------------------------------------------------
 
-UNLOCK TABLES;
-
-/*Table structure for table `tab_preparo` */
-
-DROP TABLE IF EXISTS `tab_preparo`;
+--
+-- Table structure for table `tab_preparo`
+--
 
 CREATE TABLE `tab_preparo` (
   `CCredito` varchar(255) DEFAULT NULL,
@@ -557,27 +593,28 @@ CREATE TABLE `tab_preparo` (
   `TipoDesconto` varchar(255) DEFAULT NULL,
   `DataReg` timestamp NULL DEFAULT NULL,
   `CUsuario` int(10) DEFAULT NULL,
-  `CEscritorio` int(10) DEFAULT NULL,
-  KEY `NumeroRecibo` (`TipoDesconto`),
-  KEY `tab_PgtPreparosCodigoCliente` (`CCliente`),
-  KEY `tab_PgtPreparosCodigoConta` (`CCredito`),
-  KEY `tab_PgtPreparosCodigoUsuario` (`CUsuario`)
+  `CEscritorio` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tab_preparo` */
+--
+-- Dumping data for table `tab_preparo`
+--
 
-LOCK TABLES `tab_preparo` WRITE;
+INSERT INTO `tab_preparo` (`CCredito`, `CCliente`, `Montante`, `TipoDesconto`, `DataReg`, `CUsuario`, `CEscritorio`) VALUES
+('1121', '68', 200, 'Desconto no Crédito', '2018-02-04 22:00:00', 1, NULL),
+('1122', '69', 200, 'Desconto no Crédito', '2018-02-04 22:00:00', 1, NULL),
+('1123', '68', 200, 'Desconto no Crédito', '2018-02-07 22:00:00', 1, NULL),
+('1124', '68', 200, 'Desconto no Crédito', '2018-02-07 22:00:00', 1, NULL),
+('1125', '69', 200, 'Desconto no Crédito', '2018-02-07 22:00:00', 1, NULL);
 
-insert  into `tab_preparo`(`CCredito`,`CCliente`,`Montante`,`TipoDesconto`,`DataReg`,`CUsuario`,`CEscritorio`) values ('1121','68',200,'Desconto no Crédito','2018-02-05 00:00:00',1,NULL),('1122','69',200,'Desconto no Crédito','2018-02-05 00:00:00',1,NULL),('1123','68',200,'Desconto no Crédito','2018-02-08 00:00:00',1,NULL),('1124','68',200,'Desconto no Crédito','2018-02-08 00:00:00',1,NULL),('1125','69',200,'Desconto no Crédito','2018-02-08 00:00:00',1,NULL);
+-- --------------------------------------------------------
 
-UNLOCK TABLES;
-
-/*Table structure for table `tab_prestacao_1plano` */
-
-DROP TABLE IF EXISTS `tab_prestacao_1plano`;
+--
+-- Table structure for table `tab_prestacao_1plano`
+--
 
 CREATE TABLE `tab_prestacao_1plano` (
-  `CPrestacao` int(10) NOT NULL AUTO_INCREMENT,
+  `CPrestacao` int(10) NOT NULL,
   `CCliente` int(10) DEFAULT NULL,
   `CCredito` int(10) DEFAULT NULL,
   `PrestacaoNumero` int(10) DEFAULT NULL,
@@ -588,27 +625,45 @@ CREATE TABLE `tab_prestacao_1plano` (
   `Saldo` double DEFAULT NULL,
   `CUsuario` int(10) DEFAULT NULL,
   `Abate` varchar(255) DEFAULT NULL,
-  `CEscritorio` int(10) DEFAULT NULL,
-  PRIMARY KEY (`CPrestacao`),
-  KEY `tab_MensalidadesCodigoAluno` (`CCliente`),
-  KEY `tab_MensalidadesCodigoConta` (`CCredito`),
-  KEY `tab_PrestacoesCodigoUsuario` (`CUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=1327 DEFAULT CHARSET=utf8;
+  `CEscritorio` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tab_prestacao_1plano` */
+--
+-- Dumping data for table `tab_prestacao_1plano`
+--
 
-LOCK TABLES `tab_prestacao_1plano` WRITE;
+INSERT INTO `tab_prestacao_1plano` (`CPrestacao`, `CCliente`, `CCredito`, `PrestacaoNumero`, `Vencimento`, `Prestacao`, `Capital`, `Juro`, `Saldo`, `CUsuario`, `Abate`, `CEscritorio`) VALUES
+(1261, 68, 1121, 1, '2018-03-04 22:00:00', 10416.666667, 6666.67, 3750, 8333.33, 1, NULL, NULL),
+(1262, 68, 1121, 2, '2018-02-03 22:00:00', 10416.666667, 8333.334167, 2083.3325, 0, 1, NULL, NULL),
+(1299, 69, 1122, 1, '2018-01-01 22:00:00', 2935.266302, 935.27, 2000, 19064.73, 1, NULL, NULL),
+(1300, 69, 1122, 2, '2018-04-04 22:00:00', 2935.266302, 1028.793302, 1906.473, 18035.936698, 1, NULL, NULL),
+(1301, 69, 1122, 3, '2018-05-04 22:00:00', 2935.266302, 1131.672632, 1803.59367, 16904.264066, 1, NULL, NULL),
+(1302, 69, 1122, 4, '2018-06-04 22:00:00', 2935.266302, 1244.839895, 1690.426407, 15659.42417, 1, NULL, NULL),
+(1303, 69, 1122, 5, '2018-07-04 22:00:00', 2935.266302, 1369.323885, 1565.942417, 14290.100285, 1, NULL, NULL),
+(1304, 69, 1122, 6, '2018-08-04 22:00:00', 2935.266302, 1506.256273, 1429.010029, 12783.844012, 1, NULL, NULL),
+(1305, 69, 1122, 7, '2018-09-04 22:00:00', 2935.266302, 1656.881901, 1278.384401, 11126.962111, 1, NULL, NULL),
+(1306, 69, 1122, 8, '2018-10-04 22:00:00', 2935.266302, 1822.570091, 1112.696211, 9304.39202, 1, NULL, NULL),
+(1307, 69, 1122, 9, '2018-11-04 22:00:00', 2935.266302, 2004.8271, 930.439202, 7299.56492, 1, NULL, NULL),
+(1308, 69, 1122, 10, '2018-12-04 22:00:00', 2935.266302, 2205.30981, 729.956492, 5094.25511, 1, NULL, NULL),
+(1309, 69, 1122, 11, '2019-01-04 22:00:00', 2935.266302, 2425.840791, 509.425511, 2668.414319, 1, NULL, NULL),
+(1310, 69, 1122, 12, '2019-02-04 22:00:00', 2935.266302, 2668.42487, 266.841432, 0, 1, NULL, NULL),
+(1314, 68, 1123, 1, '2018-02-04 22:00:00', 9360.651629, 4260.65, 5100, 12739.35, 1, NULL, NULL),
+(1315, 68, 1123, 2, '2018-04-07 22:00:00', 9360.651629, 5538.846629, 3821.805, 7200.503371, 1, NULL, NULL),
+(1316, 68, 1123, 3, '2018-05-07 22:00:00', 9360.651629, 7200.500618, 2160.151011, 0, 1, NULL, NULL),
+(1319, 68, 1124, 1, '2018-02-03 22:00:00', 6944.444444, 4444.44, 2500, 5555.56, 1, NULL, NULL),
+(1320, 68, 1124, 2, '2018-03-03 22:00:00', 6944.444444, 5555.554444, 1388.89, 0, 1, NULL, NULL),
+(1324, 69, 1125, 1, '2018-03-07 22:00:00', 8259.398496, 3759.4, 4500, 11240.6, 1, NULL, NULL),
+(1325, 69, 1125, 2, '2018-04-07 22:00:00', 8259.398496, 4887.218496, 3372.18, 6353.381504, 1, NULL, NULL),
+(1326, 69, 1125, 3, '2018-05-07 22:00:00', 8259.398496, 6353.384045, 1906.014451, 0, 1, NULL, NULL);
 
-insert  into `tab_prestacao_1plano`(`CPrestacao`,`CCliente`,`CCredito`,`PrestacaoNumero`,`Vencimento`,`Prestacao`,`Capital`,`Juro`,`Saldo`,`CUsuario`,`Abate`,`CEscritorio`) values (1261,68,1121,1,'2018-03-05 00:00:00',10416.666667,6666.67,3750,8333.33,1,NULL,NULL),(1262,68,1121,2,'2018-02-04 00:00:00',10416.666667,8333.334167,2083.3325,0,1,NULL,NULL),(1299,69,1122,1,'2018-01-02 00:00:00',2935.266302,935.27,2000,19064.73,1,NULL,NULL),(1300,69,1122,2,'2018-04-05 00:00:00',2935.266302,1028.793302,1906.473,18035.936698,1,NULL,NULL),(1301,69,1122,3,'2018-05-05 00:00:00',2935.266302,1131.672632,1803.59367,16904.264066,1,NULL,NULL),(1302,69,1122,4,'2018-06-05 00:00:00',2935.266302,1244.839895,1690.426407,15659.42417,1,NULL,NULL),(1303,69,1122,5,'2018-07-05 00:00:00',2935.266302,1369.323885,1565.942417,14290.100285,1,NULL,NULL),(1304,69,1122,6,'2018-08-05 00:00:00',2935.266302,1506.256273,1429.010029,12783.844012,1,NULL,NULL),(1305,69,1122,7,'2018-09-05 00:00:00',2935.266302,1656.881901,1278.384401,11126.962111,1,NULL,NULL),(1306,69,1122,8,'2018-10-05 00:00:00',2935.266302,1822.570091,1112.696211,9304.39202,1,NULL,NULL),(1307,69,1122,9,'2018-11-05 00:00:00',2935.266302,2004.8271,930.439202,7299.56492,1,NULL,NULL),(1308,69,1122,10,'2018-12-05 00:00:00',2935.266302,2205.30981,729.956492,5094.25511,1,NULL,NULL),(1309,69,1122,11,'2019-01-05 00:00:00',2935.266302,2425.840791,509.425511,2668.414319,1,NULL,NULL),(1310,69,1122,12,'2019-02-05 00:00:00',2935.266302,2668.42487,266.841432,0,1,NULL,NULL),(1314,68,1123,1,'2018-02-05 00:00:00',9360.651629,4260.65,5100,12739.35,1,NULL,NULL),(1315,68,1123,2,'2018-04-08 00:00:00',9360.651629,5538.846629,3821.805,7200.503371,1,NULL,NULL),(1316,68,1123,3,'2018-05-08 00:00:00',9360.651629,7200.500618,2160.151011,0,1,NULL,NULL),(1319,68,1124,1,'2018-02-04 00:00:00',6944.444444,4444.44,2500,5555.56,1,NULL,NULL),(1320,68,1124,2,'2018-03-04 00:00:00',6944.444444,5555.554444,1388.89,0,1,NULL,NULL),(1324,69,1125,1,'2018-03-08 00:00:00',8259.398496,3759.4,4500,11240.6,1,NULL,NULL),(1325,69,1125,2,'2018-04-08 00:00:00',8259.398496,4887.218496,3372.18,6353.381504,1,NULL,NULL),(1326,69,1125,3,'2018-05-08 00:00:00',8259.398496,6353.384045,1906.014451,0,1,NULL,NULL);
+-- --------------------------------------------------------
 
-UNLOCK TABLES;
-
-/*Table structure for table `tab_prestacao_2vigente` */
-
-DROP TABLE IF EXISTS `tab_prestacao_2vigente`;
+--
+-- Table structure for table `tab_prestacao_2vigente`
+--
 
 CREATE TABLE `tab_prestacao_2vigente` (
-  `CPrestacaoVigente` int(10) NOT NULL AUTO_INCREMENT,
+  `CPrestacaoVigente` int(10) NOT NULL,
   `CPrestacao` int(10) DEFAULT NULL,
   `CCliente` int(10) DEFAULT NULL,
   `CCredito` int(10) DEFAULT NULL,
@@ -621,26 +676,43 @@ CREATE TABLE `tab_prestacao_2vigente` (
   `Capital` double DEFAULT NULL,
   `Saldo` double DEFAULT NULL,
   `Abate` varchar(255) DEFAULT NULL,
-  `CEscritorio` int(10) DEFAULT NULL,
-  PRIMARY KEY (`CPrestacaoVigente`),
-  KEY `tab_MensalidadesCodigoAluno` (`CCliente`),
-  KEY `tab_MensalidadesCodigoConta` (`CCredito`)
-) ENGINE=InnoDB AUTO_INCREMENT=1335 DEFAULT CHARSET=utf8;
+  `CEscritorio` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tab_prestacao_2vigente` */
+--
+-- Dumping data for table `tab_prestacao_2vigente`
+--
 
-LOCK TABLES `tab_prestacao_2vigente` WRITE;
+INSERT INTO `tab_prestacao_2vigente` (`CPrestacaoVigente`, `CPrestacao`, `CCliente`, `CCredito`, `CTaxa`, `PrestacaoNumero`, `Vencimento`, `Pagamento`, `Prestacao`, `Juro`, `Capital`, `Saldo`, `Abate`, `CEscritorio`) VALUES
+(1270, 1262, 68, 1121, 0, 2, '2018-02-03 22:00:00', NULL, 10416.666667, 2083.3325, 8333.334167, 0, NULL, NULL),
+(1307, 1299, 69, 1122, 0, 1, '2018-01-01 22:00:00', NULL, 2935.266302, 2000, 935.27, 19064.73, NULL, NULL),
+(1308, 1300, 69, 1122, 0, 2, '2018-04-04 22:00:00', NULL, 2935.266302, 1906.473, 1028.793302, 18035.936698, NULL, NULL),
+(1309, 1301, 69, 1122, 0, 3, '2018-05-04 22:00:00', NULL, 2935.266302, 1803.59367, 1131.672632, 16904.264066, NULL, NULL),
+(1310, 1302, 69, 1122, 0, 4, '2018-06-04 22:00:00', NULL, 2935.266302, 1690.426407, 1244.839895, 15659.42417, NULL, NULL),
+(1311, 1303, 69, 1122, 0, 5, '2018-07-04 22:00:00', NULL, 2935.266302, 1565.942417, 1369.323885, 14290.100285, NULL, NULL),
+(1312, 1304, 69, 1122, 0, 6, '2018-08-04 22:00:00', NULL, 2935.266302, 1429.010029, 1506.256273, 12783.844012, NULL, NULL),
+(1313, 1305, 69, 1122, 0, 7, '2018-09-04 22:00:00', NULL, 2935.266302, 1278.384401, 1656.881901, 11126.962111, NULL, NULL),
+(1314, 1306, 69, 1122, 0, 8, '2018-10-04 22:00:00', NULL, 2935.266302, 1112.696211, 1822.570091, 9304.39202, NULL, NULL),
+(1315, 1307, 69, 1122, 0, 9, '2018-11-04 22:00:00', NULL, 2935.266302, 930.439202, 2004.8271, 7299.56492, NULL, NULL),
+(1316, 1308, 69, 1122, 0, 10, '2018-12-04 22:00:00', NULL, 2935.266302, 729.956492, 2205.30981, 5094.25511, NULL, NULL),
+(1317, 1309, 69, 1122, 0, 11, '2019-01-04 22:00:00', NULL, 2935.266302, 509.425511, 2425.840791, 2668.414319, NULL, NULL),
+(1318, 1310, 69, 1122, 0, 12, '2019-02-04 22:00:00', NULL, 2935.266302, 266.841432, 2668.42487, 0, NULL, NULL),
+(1322, 1314, 68, 1123, 0, 1, '2018-02-04 22:00:00', NULL, 9360.651629, 5100, 4260.65, 12739.35, NULL, NULL),
+(1323, 1315, 68, 1123, 0, 2, '2018-04-07 22:00:00', NULL, 9360.651629, 3821.805, 5538.846629, 7200.503371, NULL, NULL),
+(1324, 1316, 68, 1123, 0, 3, '2018-05-07 22:00:00', NULL, 9360.651629, 2160.151011, 7200.500618, 0, NULL, NULL),
+(1328, 1320, 68, 1124, 0, 2, '2018-03-03 22:00:00', NULL, 6944.444444, 1388.89, 5555.554444, 0, NULL, NULL),
+(1332, 1324, 69, 1125, 0, 1, '2018-03-07 22:00:00', NULL, 8259.398496, 4500, 3759.4, 11240.6, NULL, NULL),
+(1333, 1325, 69, 1125, 0, 2, '2018-04-07 22:00:00', NULL, 8259.398496, 3372.18, 4887.218496, 6353.381504, NULL, NULL),
+(1334, 1326, 69, 1125, 0, 3, '2018-05-07 22:00:00', NULL, 8259.398496, 1906.014451, 6353.384045, 0, NULL, NULL);
 
-insert  into `tab_prestacao_2vigente`(`CPrestacaoVigente`,`CPrestacao`,`CCliente`,`CCredito`,`CTaxa`,`PrestacaoNumero`,`Vencimento`,`Pagamento`,`Prestacao`,`Juro`,`Capital`,`Saldo`,`Abate`,`CEscritorio`) values (1270,1262,68,1121,0,2,'2018-02-04 00:00:00',NULL,10416.666667,2083.3325,8333.334167,0,NULL,NULL),(1307,1299,69,1122,0,1,'2018-01-02 00:00:00',NULL,2935.266302,2000,935.27,19064.73,NULL,NULL),(1308,1300,69,1122,0,2,'2018-04-05 00:00:00',NULL,2935.266302,1906.473,1028.793302,18035.936698,NULL,NULL),(1309,1301,69,1122,0,3,'2018-05-05 00:00:00',NULL,2935.266302,1803.59367,1131.672632,16904.264066,NULL,NULL),(1310,1302,69,1122,0,4,'2018-06-05 00:00:00',NULL,2935.266302,1690.426407,1244.839895,15659.42417,NULL,NULL),(1311,1303,69,1122,0,5,'2018-07-05 00:00:00',NULL,2935.266302,1565.942417,1369.323885,14290.100285,NULL,NULL),(1312,1304,69,1122,0,6,'2018-08-05 00:00:00',NULL,2935.266302,1429.010029,1506.256273,12783.844012,NULL,NULL),(1313,1305,69,1122,0,7,'2018-09-05 00:00:00',NULL,2935.266302,1278.384401,1656.881901,11126.962111,NULL,NULL),(1314,1306,69,1122,0,8,'2018-10-05 00:00:00',NULL,2935.266302,1112.696211,1822.570091,9304.39202,NULL,NULL),(1315,1307,69,1122,0,9,'2018-11-05 00:00:00',NULL,2935.266302,930.439202,2004.8271,7299.56492,NULL,NULL),(1316,1308,69,1122,0,10,'2018-12-05 00:00:00',NULL,2935.266302,729.956492,2205.30981,5094.25511,NULL,NULL),(1317,1309,69,1122,0,11,'2019-01-05 00:00:00',NULL,2935.266302,509.425511,2425.840791,2668.414319,NULL,NULL),(1318,1310,69,1122,0,12,'2019-02-05 00:00:00',NULL,2935.266302,266.841432,2668.42487,0,NULL,NULL),(1322,1314,68,1123,0,1,'2018-02-05 00:00:00',NULL,9360.651629,5100,4260.65,12739.35,NULL,NULL),(1323,1315,68,1123,0,2,'2018-04-08 00:00:00',NULL,9360.651629,3821.805,5538.846629,7200.503371,NULL,NULL),(1324,1316,68,1123,0,3,'2018-05-08 00:00:00',NULL,9360.651629,2160.151011,7200.500618,0,NULL,NULL),(1328,1320,68,1124,0,2,'2018-03-04 00:00:00',NULL,6944.444444,1388.89,5555.554444,0,NULL,NULL),(1332,1324,69,1125,0,1,'2018-03-08 00:00:00',NULL,8259.398496,4500,3759.4,11240.6,NULL,NULL),(1333,1325,69,1125,0,2,'2018-04-08 00:00:00',NULL,8259.398496,3372.18,4887.218496,6353.381504,NULL,NULL),(1334,1326,69,1125,0,3,'2018-05-08 00:00:00',NULL,8259.398496,1906.014451,6353.384045,0,NULL,NULL);
+-- --------------------------------------------------------
 
-UNLOCK TABLES;
-
-/*Table structure for table `tab_prestacao_3estorno` */
-
-DROP TABLE IF EXISTS `tab_prestacao_3estorno`;
+--
+-- Table structure for table `tab_prestacao_3estorno`
+--
 
 CREATE TABLE `tab_prestacao_3estorno` (
-  `CPrestacaoVigente` int(10) NOT NULL AUTO_INCREMENT,
+  `CPrestacaoVigente` int(10) NOT NULL,
   `CPrestacao` int(10) DEFAULT NULL,
   `CCliente` int(10) DEFAULT NULL,
   `CCredito` int(10) DEFAULT NULL,
@@ -653,24 +725,17 @@ CREATE TABLE `tab_prestacao_3estorno` (
   `Capital` double DEFAULT NULL,
   `Saldo` double DEFAULT NULL,
   `DataEstorno` timestamp NULL DEFAULT NULL,
-  `CEscritorio` int(10) DEFAULT NULL,
-  PRIMARY KEY (`CPrestacaoVigente`),
-  KEY `tab_MensalidadesCodigoAluno` (`CCliente`),
-  KEY `tab_MensalidadesCodigoConta` (`CCredito`)
+  `CEscritorio` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tab_prestacao_3estorno` */
+-- --------------------------------------------------------
 
-LOCK TABLES `tab_prestacao_3estorno` WRITE;
-
-UNLOCK TABLES;
-
-/*Table structure for table `tab_prestacao_4paga` */
-
-DROP TABLE IF EXISTS `tab_prestacao_4paga`;
+--
+-- Table structure for table `tab_prestacao_4paga`
+--
 
 CREATE TABLE `tab_prestacao_4paga` (
-  `CPrestacaoPaga` int(10) NOT NULL AUTO_INCREMENT,
+  `CPrestacaoPaga` int(10) NOT NULL,
   `CPrestacao` int(10) DEFAULT NULL,
   `CCliente` int(10) DEFAULT NULL,
   `CCredito` int(10) DEFAULT NULL,
@@ -692,27 +757,25 @@ CREATE TABLE `tab_prestacao_4paga` (
   `DataReg` timestamp NULL DEFAULT NULL,
   `CUsuario` int(10) DEFAULT NULL,
   `Abate` varchar(255) DEFAULT NULL,
-  `CEscritorio` int(10) DEFAULT NULL,
-  PRIMARY KEY (`CPrestacaoPaga`),
-  KEY `tab_MensalidadesCodigoAluno` (`CCliente`),
-  KEY `tab_MensalidadesCodigoConta` (`CCredito`),
-  KEY `tab_Prestacoes_RealizadoCodigoUsuario` (`CUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=815 DEFAULT CHARSET=utf8;
+  `CEscritorio` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tab_prestacao_4paga` */
+--
+-- Dumping data for table `tab_prestacao_4paga`
+--
 
-LOCK TABLES `tab_prestacao_4paga` WRITE;
+INSERT INTO `tab_prestacao_4paga` (`CPrestacaoPaga`, `CPrestacao`, `CCliente`, `CCredito`, `PrestacaoNumero`, `Vencimento`, `Pagamento`, `Mora`, `MoraDias`, `PerdaoDias`, `PerdaoMontante`, `AntecipadoDias`, `AntecipadoMontante`, `Prestacao`, `Capital`, `Juro`, `Total`, `Remanescente`, `Saldo`, `DataReg`, `CUsuario`, `Abate`, `CEscritorio`) VALUES
+(813, 1261, 68, 1121, 1, '2018-02-04 22:00:00', '2018-02-04 22:00:00', 0, 0, 0, 0, 0, 0, 0, 6666.67, 3750, 10416.67, 0, 8333.33, '2018-02-04 22:00:00', 1, NULL, NULL),
+(814, 1319, 68, 1124, 1, '2018-02-03 22:00:00', '2018-02-07 22:00:00', 555.56, 4, 0, 0, 0, 0, 0, 4444.44, 2500, 7500, 0, 5555.56, '2018-02-07 22:00:00', 1, NULL, NULL);
 
-insert  into `tab_prestacao_4paga`(`CPrestacaoPaga`,`CPrestacao`,`CCliente`,`CCredito`,`PrestacaoNumero`,`Vencimento`,`Pagamento`,`Mora`,`MoraDias`,`PerdaoDias`,`PerdaoMontante`,`AntecipadoDias`,`AntecipadoMontante`,`Prestacao`,`Capital`,`Juro`,`Total`,`Remanescente`,`Saldo`,`DataReg`,`CUsuario`,`Abate`,`CEscritorio`) values (813,1261,68,1121,1,'2018-02-05 00:00:00','2018-02-05 00:00:00',0,0,0,0,0,0,0,6666.67,3750,10416.67,0,8333.33,'2018-02-05 00:00:00',1,NULL,NULL),(814,1319,68,1124,1,'2018-02-04 00:00:00','2018-02-08 00:00:00',555.56,4,0,0,0,0,0,4444.44,2500,7500,0,5555.56,'2018-02-08 00:00:00',1,NULL,NULL);
+-- --------------------------------------------------------
 
-UNLOCK TABLES;
-
-/*Table structure for table `tab_usuarios` */
-
-DROP TABLE IF EXISTS `tab_usuarios`;
+--
+-- Table structure for table `tab_usuarios`
+--
 
 CREATE TABLE `tab_usuarios` (
-  `IdUsuario` int(11) NOT NULL AUTO_INCREMENT,
+  `IdUsuario` int(11) NOT NULL,
   `NomeUsuario` varchar(50) DEFAULT NULL,
   `CargoUsuario` varchar(50) DEFAULT NULL,
   `Email` varchar(50) DEFAULT NULL,
@@ -721,183 +784,201 @@ CREATE TABLE `tab_usuarios` (
   `Contacto` int(12) DEFAULT NULL,
   `Password` varchar(500) DEFAULT NULL,
   `Foto` blob,
-  `IdSucursal` int(10) DEFAULT NULL,
-  PRIMARY KEY (`IdUsuario`),
-  KEY `IdSucursal` (`IdSucursal`),
-  CONSTRAINT `tab_usuarios_ibfk_1` FOREIGN KEY (`IdSucursal`) REFERENCES `tb_sucursal` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+  `IdSucursal` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `tab_usuarios` */
+--
+-- Dumping data for table `tab_usuarios`
+--
 
-LOCK TABLES `tab_usuarios` WRITE;
+INSERT INTO `tab_usuarios` (`IdUsuario`, `NomeUsuario`, `CargoUsuario`, `Email`, `SalarioBruto`, `Endereco`, `Contacto`, `Password`, `Foto`, `IdSucursal`) VALUES
+(14, 'Ernesto Simango', 'Agministrador', 'neto.sima_9@hotmail.com', 50000, 'Guava', 842983939, '1bbd886460827015e5d605ed44252251', 0x494d475f323233392e4a504547, 1),
+(15, 'kdgawjd', 'adw', 'netok.sima@gmail.com', 7, 'sdfad', 820000001, '1bbd886460827015e5d605ed44252251', 0x48656c6c6f312e706e67, 2),
+(16, 'sderdfew', 'sdasd', 'k@gmail.com', 243, 'iuhakea', 820000006, '1bbd886460827015e5d605ed44252251', '', 1),
+(17, 'ddd', 'sasr', 'ima@gmail.com', 323, 'wefe', 820000021, '1bbd886460827015e5d605ed44252251', 0x666f66746574682e706e67, 5),
+(19, 'neto.sima@gmail.com', 'Boss', 'neto.sima@gmail.com', 40000, 'AltoMae', 842983939, '25d55ad283aa400af464c76d713c07ad', '', 1);
 
-insert  into `tab_usuarios`(`IdUsuario`,`NomeUsuario`,`CargoUsuario`,`Email`,`SalarioBruto`,`Endereco`,`Contacto`,`Password`,`Foto`,`IdSucursal`) values (14,'Ernesto Simango','Agministrador','neto.sima@gmail.com',50000,'Guava',842983939,'1bbd886460827015e5d605ed44252251','IMG_2239.JPEG',1),(15,'kdgawjd','adw','netok.sima@gmail.com',7,'sdfad',820000001,'1bbd886460827015e5d605ed44252251','Hello1.png',2),(16,'sderdfew','sdasd','k@gmail.com',243,'iuhakea',820000006,'1bbd886460827015e5d605ed44252251','',1),(17,'ddd','sasr','ima@gmail.com',323,'wefe',820000021,'1bbd886460827015e5d605ed44252251','fofteth.png',5),(18,'Ernesto','Boss','neto.sima@gmail.com',30000,'gago.c',827299183,'827ccb0eea8a706c4c34a16891f84e7b','',1);
+-- --------------------------------------------------------
 
-UNLOCK TABLES;
-
-/*Table structure for table `tb_banco` */
-
-DROP TABLE IF EXISTS `tb_banco`;
+--
+-- Table structure for table `tb_banco`
+--
 
 CREATE TABLE `tb_banco` (
-  `IdBanco` int(10) NOT NULL AUTO_INCREMENT,
+  `IdBanco` int(10) NOT NULL,
   `NomeBanco` varchar(255) DEFAULT NULL,
   `NumeroDeConta` varchar(255) DEFAULT NULL,
   `NIB` varchar(255) DEFAULT NULL,
-  `IdSucursal` int(10) DEFAULT NULL,
-  PRIMARY KEY (`IdBanco`),
-  KEY `NumeroDeConta` (`NumeroDeConta`),
-  KEY `IdSucursal` (`IdSucursal`),
-  CONSTRAINT `tb_banco_ibfk_1` FOREIGN KEY (`IdSucursal`) REFERENCES `tb_sucursal` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `IdSucursal` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tb_banco` */
+--
+-- Dumping data for table `tb_banco`
+--
 
-LOCK TABLES `tb_banco` WRITE;
+INSERT INTO `tb_banco` (`IdBanco`, `NomeBanco`, `NumeroDeConta`, `NIB`, `IdSucursal`) VALUES
+(1, 'BCI', '2345', '23423443', 1);
 
-insert  into `tb_banco`(`IdBanco`,`NomeBanco`,`NumeroDeConta`,`NIB`,`IdSucursal`) values (1,'BCI','2345','23423443',1);
+-- --------------------------------------------------------
 
-UNLOCK TABLES;
-
-/*Table structure for table `tb_destinocredito` */
-
-DROP TABLE IF EXISTS `tb_destinocredito`;
+--
+-- Table structure for table `tb_destinocredito`
+--
 
 CREATE TABLE `tb_destinocredito` (
-  `IdDestino` int(10) NOT NULL AUTO_INCREMENT,
+  `IdDestino` int(10) NOT NULL,
   `DestinoCredito` varchar(255) DEFAULT NULL,
-  `IdSucursal` int(10) DEFAULT NULL,
-  PRIMARY KEY (`IdDestino`),
-  KEY `tb_destinocredito_ibfk_1` (`IdSucursal`),
-  CONSTRAINT `tb_destinocredito_ibfk_1` FOREIGN KEY (`IdSucursal`) REFERENCES `tb_sucursal` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+  `IdSucursal` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tb_destinocredito` */
+--
+-- Dumping data for table `tb_destinocredito`
+--
 
-LOCK TABLES `tb_destinocredito` WRITE;
+INSERT INTO `tb_destinocredito` (`IdDestino`, `DestinoCredito`, `IdSucursal`) VALUES
+(2, 'Material de Informática', 1),
+(3, 'Material de Escritório', 1),
+(4, 'Fundo de Maneio', 1),
+(5, 'Investimento', 1),
+(6, 'Fundo de Maneio e Investimento', 1),
+(7, 'Investimento em um Negocio Existente', 1),
+(8, 'Investimento em um novo negocio', 1);
 
-insert  into `tb_destinocredito`(`IdDestino`,`DestinoCredito`,`IdSucursal`) values (2,'Material de Informática',1),(3,'Material de Escritório',1),(4,'Fundo de Maneio',1),(5,'Investimento',1),(6,'Fundo de Maneio e Investimento',1),(7,'Investimento em um Negocio Existente',1),(8,'Investimento em um novo negocio',1);
+-- --------------------------------------------------------
 
-UNLOCK TABLES;
-
-/*Table structure for table `tb_formapagamento` */
-
-DROP TABLE IF EXISTS `tb_formapagamento`;
+--
+-- Table structure for table `tb_formapagamento`
+--
 
 CREATE TABLE `tb_formapagamento` (
-  `IdFormaPagamento` int(10) NOT NULL AUTO_INCREMENT,
+  `IdFormaPagamento` int(10) NOT NULL,
   `FormaPagamento` varchar(255) DEFAULT NULL,
-  `IdSucursal` int(10) DEFAULT NULL,
-  PRIMARY KEY (`IdFormaPagamento`),
-  KEY `IdSucursal` (`IdSucursal`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+  `IdSucursal` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tb_formapagamento` */
+--
+-- Dumping data for table `tb_formapagamento`
+--
 
-LOCK TABLES `tb_formapagamento` WRITE;
+INSERT INTO `tb_formapagamento` (`IdFormaPagamento`, `FormaPagamento`, `IdSucursal`) VALUES
+(1, 'Numerario', 1),
+(3, 'Transferencia', 2),
+(5, 'Numerario / Transferencia', 2),
+(6, 'Cheque', 2),
+(7, 'Cheque / Transferencia', 2),
+(8, 'Numerario / Cheuque', 2);
 
-insert  into `tb_formapagamento`(`IdFormaPagamento`,`FormaPagamento`,`IdSucursal`) values (1,'Numerario',1),(3,'Transferencia',2),(5,'Numerario / Transferencia',2),(6,'Cheque',2),(7,'Cheque / Transferencia',2),(8,'Numerario / Cheuque',2);
+-- --------------------------------------------------------
 
-UNLOCK TABLES;
-
-/*Table structure for table `tb_gestor` */
-
-DROP TABLE IF EXISTS `tb_gestor`;
+--
+-- Table structure for table `tb_gestor`
+--
 
 CREATE TABLE `tb_gestor` (
-  `IdGestor` int(10) NOT NULL AUTO_INCREMENT,
+  `IdGestor` int(10) NOT NULL,
   `NomeGestor` varchar(255) DEFAULT NULL,
   `DataReg` timestamp NULL DEFAULT NULL,
   `IdSucursal` int(10) DEFAULT NULL,
-  `Contacto` int(20) DEFAULT NULL,
-  PRIMARY KEY (`IdGestor`),
-  KEY `IdSucursal` (`IdSucursal`),
-  CONSTRAINT `tb_gestor_ibfk_1` FOREIGN KEY (`IdSucursal`) REFERENCES `tb_sucursal` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+  `Contacto` int(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tb_gestor` */
+--
+-- Dumping data for table `tb_gestor`
+--
 
-LOCK TABLES `tb_gestor` WRITE;
+INSERT INTO `tb_gestor` (`IdGestor`, `NomeGestor`, `DataReg`, `IdSucursal`, `Contacto`) VALUES
+(1, 'JOEL MIAMBO', '2017-05-31 22:00:00', 1, 827299183),
+(2, 'REGINA GIVE', '2017-06-03 22:00:00', 1, 827299183),
+(3, 'CELIA RAFAEL', '2017-06-03 22:00:00', 1, 827299183),
+(4, 'ZARDA CRISTINA', '2017-06-03 22:00:00', 1, 827299183),
+(6, 'FELICIDADE MAFUMO', '2017-07-04 22:00:00', 1, 827299183),
+(7, 'CARTEIRA ESPECIAL', '2017-09-30 22:00:00', 1, 827299183);
 
-insert  into `tb_gestor`(`IdGestor`,`NomeGestor`,`DataReg`,`IdSucursal`,`Contacto`) values (1,'JOEL MIAMBO','2017-06-01 00:00:00',1,827299183),(2,'REGINA GIVE','2017-06-04 00:00:00',1,827299183),(3,'CELIA RAFAEL','2017-06-04 00:00:00',1,827299183),(4,'ZARDA CRISTINA','2017-06-04 00:00:00',1,827299183),(6,'FELICIDADE MAFUMO','2017-07-05 00:00:00',1,827299183),(7,'CARTEIRA ESPECIAL','2017-10-01 00:00:00',1,827299183);
+-- --------------------------------------------------------
 
-UNLOCK TABLES;
-
-/*Table structure for table `tb_linhacredito` */
-
-DROP TABLE IF EXISTS `tb_linhacredito`;
+--
+-- Table structure for table `tb_linhacredito`
+--
 
 CREATE TABLE `tb_linhacredito` (
-  `IdLinha` int(10) NOT NULL AUTO_INCREMENT,
+  `IdLinha` int(10) NOT NULL,
   `LinhaDeCredito` varchar(255) DEFAULT NULL,
   `TaxaJuro` double DEFAULT NULL,
   `Prazo` int(10) DEFAULT NULL,
   `PlanoPagamento` varchar(255) DEFAULT NULL,
-  `IdSucursal` int(10) DEFAULT NULL,
-  PRIMARY KEY (`IdLinha`),
-  KEY `IdSucursal` (`IdSucursal`),
-  CONSTRAINT `tb_linhacredito_ibfk_1` FOREIGN KEY (`IdSucursal`) REFERENCES `tb_sucursal` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+  `IdSucursal` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tb_linhacredito` */
+--
+-- Dumping data for table `tb_linhacredito`
+--
 
-LOCK TABLES `tb_linhacredito` WRITE;
+INSERT INTO `tb_linhacredito` (`IdLinha`, `LinhaDeCredito`, `TaxaJuro`, `Prazo`, `PlanoPagamento`, `IdSucursal`) VALUES
+(12, 'CREDITO 1 MES', 20, 1, 'MENSAL', 1),
+(13, 'CREDITO 2 MESES', 25, 2, 'MENSAL', 2);
 
-insert  into `tb_linhacredito`(`IdLinha`,`LinhaDeCredito`,`TaxaJuro`,`Prazo`,`PlanoPagamento`,`IdSucursal`) values (12,'CREDITO 1 MES',20,1,'MENSAL',1),(13,'CREDITO 2 MESES',25,2,'MENSAL',2);
+-- --------------------------------------------------------
 
-UNLOCK TABLES;
-
-/*Table structure for table `tb_motivoregeita` */
-
-DROP TABLE IF EXISTS `tb_motivoregeita`;
+--
+-- Table structure for table `tb_motivoregeita`
+--
 
 CREATE TABLE `tb_motivoregeita` (
-  `IdMotivo` int(10) NOT NULL AUTO_INCREMENT,
+  `IdMotivo` int(10) NOT NULL,
   `Motivo` varchar(255) DEFAULT NULL,
-  `IdSucursal` int(10) DEFAULT NULL,
-  PRIMARY KEY (`IdMotivo`),
-  KEY `IdSucursal` (`IdSucursal`),
-  CONSTRAINT `tb_motivoregeita_ibfk_1` FOREIGN KEY (`IdSucursal`) REFERENCES `tb_sucursal` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+  `IdSucursal` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tb_motivoregeita` */
+--
+-- Dumping data for table `tb_motivoregeita`
+--
 
-LOCK TABLES `tb_motivoregeita` WRITE;
+INSERT INTO `tb_motivoregeita` (`IdMotivo`, `Motivo`, `IdSucursal`) VALUES
+(2, 'O CLIENTE NAO ACEITOU O MONTANTE APROVADO', 1),
+(3, 'CLIENTE NAO E TRANSPARENTE ', 1),
+(4, 'MOROSA EM OUTRAS INSTITUICOES', 1),
+(5, 'FALTA DE EXPERIENCIA NA ACTIVIDADE', 1),
+(6, 'O CLIENTE NAO TEM HISTORICA CREDITICIA ', 1),
+(7, 'ACTIVIDADE NAO PODE SER FINANCIADA (LEI)', 1),
+(8, 'NEGOCIO NAO E ESTAVEL', 1),
+(9, 'CLIENTE NAO COOPERA', 1),
+(10, 'OUTROS', 1);
 
-insert  into `tb_motivoregeita`(`IdMotivo`,`Motivo`,`IdSucursal`) values (2,'O CLIENTE NAO ACEITOU O MONTANTE APROVADO',1),(3,'CLIENTE NAO E TRANSPARENTE ',1),(4,'MOROSA EM OUTRAS INSTITUICOES',1),(5,'FALTA DE EXPERIENCIA NA ACTIVIDADE',1),(6,'O CLIENTE NAO TEM HISTORICA CREDITICIA ',1),(7,'ACTIVIDADE NAO PODE SER FINANCIADA (LEI)',1),(8,'NEGOCIO NAO E ESTAVEL',1),(9,'CLIENTE NAO COOPERA',1),(10,'OUTROS',1);
+-- --------------------------------------------------------
 
-UNLOCK TABLES;
-
-/*Table structure for table `tb_sucursal` */
-
-DROP TABLE IF EXISTS `tb_sucursal`;
+--
+-- Table structure for table `tb_sucursal`
+--
 
 CREATE TABLE `tb_sucursal` (
-  `Id` int(10) NOT NULL AUTO_INCREMENT,
+  `Id` int(10) NOT NULL,
   `Nome` varchar(255) DEFAULT NULL,
   `Cidade` varchar(255) DEFAULT NULL,
   `Endereco` varchar(255) DEFAULT NULL,
   `Contacto` int(10) DEFAULT NULL,
   `Email` varchar(255) DEFAULT NULL,
   `ContactoAlternativo` int(10) DEFAULT NULL,
-  `Titular` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  `Titular` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tb_sucursal` */
+--
+-- Dumping data for table `tb_sucursal`
+--
 
-LOCK TABLES `tb_sucursal` WRITE;
+INSERT INTO `tb_sucursal` (`Id`, `Nome`, `Cidade`, `Endereco`, `Contacto`, `Email`, `ContactoAlternativo`, `Titular`) VALUES
+(1, 'MAPALUVA MICROCREDITO', 'Maputo', 'AV. MARIEN NGUABI', 847848647, 'MAPALUVA.LDA@GMAIL.COM', 827023940, 'MAURO VICENTE DAS DORES GOCA'),
+(2, 'MEGA', 'Maputo', 'Vladimir L', 820000000, 'John@gmail.co', 820000000, 'Rafael Ernesto Simango'),
+(5, 'adwd', 'awda', 'awd', 820000000, 'adw@ad', 820000000, 'wadw'),
+(6, 'adadw', 'adww', 'awdaw', 820000001, 'awd@ase', 820000001, 'sef');
 
-insert  into `tb_sucursal`(`Id`,`Nome`,`Cidade`,`Endereco`,`Contacto`,`Email`,`ContactoAlternativo`,`Titular`) values (1,'MAPALUVA MICROCREDITO','Maputo','AV. MARIEN NGUABI',847848647,'MAPALUVA.LDA@GMAIL.COM',827023940,'MAURO VICENTE DAS DORES GOCA'),(2,'MEGA','Maputo','Vladimir L',820000000,'John@gmail.co',820000000,'Rafael Ernesto Simango'),(5,'adwd','awda','awd',820000000,'adw@ad',820000000,'wadw'),(6,'adadw','adww','awdaw',820000001,'awd@ase',820000001,'sef');
+-- --------------------------------------------------------
 
-UNLOCK TABLES;
-
-/*Table structure for table `tb_taxas` */
-
-DROP TABLE IF EXISTS `tb_taxas`;
+--
+-- Table structure for table `tb_taxas`
+--
 
 CREATE TABLE `tb_taxas` (
-  `Id` int(10) NOT NULL AUTO_INCREMENT,
+  `Id` int(10) NOT NULL,
   `Preparo` double DEFAULT NULL,
   `Mora` int(10) DEFAULT NULL,
   `DescontoPelaAntecipacao` double DEFAULT NULL,
@@ -905,97 +986,601 @@ CREATE TABLE `tb_taxas` (
   `IRPS` int(10) DEFAULT NULL,
   `INSS_Empresa` int(10) DEFAULT NULL,
   `INSS_Trabalhador` int(10) DEFAULT NULL,
-  `IdSucursal` int(10) DEFAULT NULL,
-  PRIMARY KEY (`Id`),
-  KEY `IdSucursal` (`IdSucursal`),
-  CONSTRAINT `tb_taxas_ibfk_2` FOREIGN KEY (`IdSucursal`) REFERENCES `tb_sucursal` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
-
-/*Data for the table `tb_taxas` */
-
-LOCK TABLES `tb_taxas` WRITE;
-
-insert  into `tb_taxas`(`Id`,`Preparo`,`Mora`,`DescontoPelaAntecipacao`,`Outros_Impostos`,`IRPS`,`INSS_Empresa`,`INSS_Trabalhador`,`IdSucursal`) values (15,3,23,34,34,22,23,3,1),(16,2342,23,323,1231,123,213,1231,1),(17,78687,545,45,65,57,65,43,1);
-
-UNLOCK TABLES;
-
-/*Table structure for table `tb_tipogarantia` */
-
-DROP TABLE IF EXISTS `tb_tipogarantia`;
-
-CREATE TABLE `tb_tipogarantia` (
-  `IdGarantia` int(10) NOT NULL AUTO_INCREMENT,
-  `TipoGarantia` varchar(255) DEFAULT NULL,
-  `IdSucursal` int(10) DEFAULT NULL,
-  PRIMARY KEY (`IdGarantia`),
-  KEY `IdSucursal` (`IdSucursal`),
-  CONSTRAINT `tb_tipogarantia_ibfk_2` FOREIGN KEY (`IdSucursal`) REFERENCES `tb_sucursal` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
-
-/*Data for the table `tb_tipogarantia` */
-
-LOCK TABLES `tb_tipogarantia` WRITE;
-
-insert  into `tb_tipogarantia`(`IdGarantia`,`TipoGarantia`,`IdSucursal`) values (6,'Stock',1),(7,'Bens Domésticos',1),(8,'Viactura',1),(9,'Cheque',1),(10,'Desconto Salárial',1);
-
-UNLOCK TABLES;
-
-/*Table structure for table `tb_tipolancamento` */
-
-DROP TABLE IF EXISTS `tb_tipolancamento`;
-
-CREATE TABLE `tb_tipolancamento` (
-  `IdTipoLancamento` int(11) NOT NULL AUTO_INCREMENT,
-  `Lancamento` varchar(200) DEFAULT NULL,
-  `IdSucursal` int(10) DEFAULT NULL,
-  PRIMARY KEY (`IdTipoLancamento`),
-  KEY `IdSucursal` (`IdSucursal`),
-  CONSTRAINT `tb_tipolancamento_ibfk_1` FOREIGN KEY (`IdSucursal`) REFERENCES `tb_sucursal` (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `tb_tipolancamento` */
-
-LOCK TABLES `tb_tipolancamento` WRITE;
-
-UNLOCK TABLES;
-
-/*Table structure for table `tb_tipolancamentocaixa` */
-
-DROP TABLE IF EXISTS `tb_tipolancamentocaixa`;
-
-CREATE TABLE `tb_tipolancamentocaixa` (
-  `CLancamentoCaixa` int(10) NOT NULL AUTO_INCREMENT,
-  `Descricao` varchar(100) DEFAULT NULL,
-  `CEscritorio` int(10) DEFAULT NULL,
-  PRIMARY KEY (`CLancamentoCaixa`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
-
-/*Data for the table `tb_tipolancamentocaixa` */
-
-LOCK TABLES `tb_tipolancamentocaixa` WRITE;
-
-insert  into `tb_tipolancamentocaixa`(`CLancamentoCaixa`,`Descricao`,`CEscritorio`) values (1,'Pagamento Preparo',NULL),(2,'Desembolso de Crédito',NULL),(3,'Compra de Material de Escritório',NULL),(4,'Despesas Fixas',NULL),(5,'Despesas Variáveis',NULL),(6,'Ganhos Extraordinários/Não Operacionais',NULL),(7,'Pagamento Prestação',NULL),(8,'Reforço',NULL),(9,'Depreciação',NULL),(10,'Despesas Financeiras',NULL),(11,'Provisao',NULL),(12,'Impostos',NULL),(13,'Saldo Inicial',NULL),(14,'Tranferencia',NULL);
-
-UNLOCK TABLES;
-
-/*Table structure for table `tb_tipolancamentodesconto` */
-
-DROP TABLE IF EXISTS `tb_tipolancamentodesconto`;
-
-CREATE TABLE `tb_tipolancamentodesconto` (
-  `CDesconto` int(10) NOT NULL AUTO_INCREMENT,
-  `Descricao` varchar(100) DEFAULT NULL,
-  `CEscritorio` int(10) DEFAULT NULL,
-  PRIMARY KEY (`CDesconto`)
+  `IdSucursal` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `tb_tipolancamentodesconto` */
+--
+-- Dumping data for table `tb_taxas`
+--
 
-LOCK TABLES `tb_tipolancamentodesconto` WRITE;
+INSERT INTO `tb_taxas` (`Id`, `Preparo`, `Mora`, `DescontoPelaAntecipacao`, `Outros_Impostos`, `IRPS`, `INSS_Empresa`, `INSS_Trabalhador`, `IdSucursal`) VALUES
+(15, 3, 23, 34, 34, 22, 23, 3, 1),
+(16, 2342, 23, 323, 1231, 123, 213, 1231, 1),
+(17, 78687, 545, 45, 65, 57, 65, 43, 1);
 
-UNLOCK TABLES;
+-- --------------------------------------------------------
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+--
+-- Table structure for table `tb_tipogarantia`
+--
+
+CREATE TABLE `tb_tipogarantia` (
+  `IdGarantia` int(10) NOT NULL,
+  `TipoGarantia` varchar(255) DEFAULT NULL,
+  `IdSucursal` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tb_tipogarantia`
+--
+
+INSERT INTO `tb_tipogarantia` (`IdGarantia`, `TipoGarantia`, `IdSucursal`) VALUES
+(6, 'Stock', 1),
+(7, 'Bens Domésticos', 1),
+(8, 'Viactura', 1),
+(9, 'Cheque', 1),
+(10, 'Desconto Salárial', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_tipolancamento`
+--
+
+CREATE TABLE `tb_tipolancamento` (
+  `IdTipoLancamento` int(11) NOT NULL,
+  `Lancamento` varchar(200) DEFAULT NULL,
+  `IdSucursal` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_tipolancamentocaixa`
+--
+
+CREATE TABLE `tb_tipolancamentocaixa` (
+  `CLancamentoCaixa` int(10) NOT NULL,
+  `Descricao` varchar(100) DEFAULT NULL,
+  `CEscritorio` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tb_tipolancamentocaixa`
+--
+
+INSERT INTO `tb_tipolancamentocaixa` (`CLancamentoCaixa`, `Descricao`, `CEscritorio`) VALUES
+(1, 'Pagamento Preparo', NULL),
+(2, 'Desembolso de Crédito', NULL),
+(3, 'Compra de Material de Escritório', NULL),
+(4, 'Despesas Fixas', NULL),
+(5, 'Despesas Variáveis', NULL),
+(6, 'Ganhos Extraordinários/Não Operacionais', NULL),
+(7, 'Pagamento Prestação', NULL),
+(8, 'Reforço', NULL),
+(9, 'Depreciação', NULL),
+(10, 'Despesas Financeiras', NULL),
+(11, 'Provisao', NULL),
+(12, 'Impostos', NULL),
+(13, 'Saldo Inicial', NULL),
+(14, 'Tranferencia', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_tipolancamentodesconto`
+--
+
+CREATE TABLE `tb_tipolancamentodesconto` (
+  `CDesconto` int(10) NOT NULL,
+  `Descricao` varchar(100) DEFAULT NULL,
+  `CEscritorio` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `tab_avalista`
+--
+ALTER TABLE `tab_avalista`
+  ADD PRIMARY KEY (`IdAvalista`),
+  ADD KEY `CUsuario` (`IdUsuario`);
+
+--
+-- Indexes for table `tab_cliente`
+--
+ALTER TABLE `tab_cliente`
+  ADD PRIMARY KEY (`IdCliente`),
+  ADD KEY `IdGestor` (`IdGestor`);
+
+--
+-- Indexes for table `tab_credito_1solicitado`
+--
+ALTER TABLE `tab_credito_1solicitado`
+  ADD PRIMARY KEY (`IdCredito`),
+  ADD KEY `CLinha` (`IdAvalista`),
+  ADD KEY `tab_AlunoCursoCodigoAluno` (`IdCliente`),
+  ADD KEY `tab_AlunoCursoCodigoCurso` (`IdLinha`),
+  ADD KEY `tab_AlunoCursoCodigoGestor` (`IdGestor`),
+  ADD KEY `IdDestino` (`IdDestino`),
+  ADD KEY `IdUsuario` (`IdUsuario`),
+  ADD KEY `IdSucursal` (`IdSucursal`);
+
+--
+-- Indexes for table `tab_credito_2proposta`
+--
+ALTER TABLE `tab_credito_2proposta`
+  ADD KEY `CAvalista` (`IdAvalista`),
+  ADD KEY `CodigoGestor` (`IdGestor`),
+  ADD KEY `CodigoLinha` (`IdLinha`),
+  ADD KEY `tab_AlunoCursoCodigoAluno` (`IdCredito`),
+  ADD KEY `tab_AlunoCursoCodigoCurso` (`ValorAprovado`),
+  ADD KEY `tab_AlunoCursoCodigoGestor` (`Prestacao`),
+  ADD KEY `tab_Conta_PropostaCodigoUsuario` (`IdUsuario`);
+
+--
+-- Indexes for table `tab_credito_4vigente`
+--
+ALTER TABLE `tab_credito_4vigente`
+  ADD PRIMARY KEY (`IdCredito`),
+  ADD KEY `CAvalista` (`IdAvalista`),
+  ADD KEY `CodigoGestor` (`IdGestor`),
+  ADD KEY `CodigoLinha` (`IdLinha`),
+  ADD KEY `tab_AlunoCursoCodigoAluno` (`IdCredito`),
+  ADD KEY `tab_AlunoCursoCodigoCurso` (`ValorAprovado`),
+  ADD KEY `tab_AlunoCursoCodigoGestor` (`Prestacao`),
+  ADD KEY `tab_Conta_PropostaCodigoUsuario` (`IdUsuario`);
+
+--
+-- Indexes for table `tab_credito_5abate`
+--
+ALTER TABLE `tab_credito_5abate`
+  ADD PRIMARY KEY (`CAbate`),
+  ADD KEY `tab_Conta_AbateCodigoConta` (`CCredito`),
+  ADD KEY `tab_Conta_AbateCodigoUsuario` (`CUsuario`);
+
+--
+-- Indexes for table `tab_credito_6pago`
+--
+ALTER TABLE `tab_credito_6pago`
+  ADD PRIMARY KEY (`CCreditoPago`),
+  ADD KEY `tab_Conta_PagaCodigoConta` (`CCredito`),
+  ADD KEY `tab_Conta_PagaCodigoUsuario` (`CUsuario`);
+
+--
+-- Indexes for table `tab_credito_7aprovado`
+--
+ALTER TABLE `tab_credito_7aprovado`
+  ADD KEY `tab_Conta_RejeitadaCodigoConta` (`IdCredito`),
+  ADD KEY `tab_Conta_RejeitadaCodigoUsuario` (`IdUsuario`);
+
+--
+-- Indexes for table `tab_credito_7rejeitado`
+--
+ALTER TABLE `tab_credito_7rejeitado`
+  ADD KEY `tab_Conta_RejeitadaCodigoConta` (`IdCredito`),
+  ADD KEY `tab_Conta_RejeitadaCodigoMotivo` (`IdMotivo`),
+  ADD KEY `tab_Conta_RejeitadaCodigoUsuario` (`IdUsuario`);
+
+--
+-- Indexes for table `tab_desembolso`
+--
+ALTER TABLE `tab_desembolso`
+  ADD KEY `tab_DesembolsoCodigoBanco` (`CBanco`),
+  ADD KEY `tab_DesembolsoCodigoTipoDesembolso` (`CFormaPagamento`),
+  ADD KEY `tab_DesembolsoCodigoUsuario` (`CUsuario`);
+
+--
+-- Indexes for table `tab_desembolso_estorno`
+--
+ALTER TABLE `tab_desembolso_estorno`
+  ADD KEY `CBanco` (`CBanco`),
+  ADD KEY `CFormaPagamento` (`CFormaPagamento`),
+  ADD KEY `CUsuario` (`CUsuario`),
+  ADD KEY `tab_Desembolso_EstornoCodigoCliente` (`CCliente`),
+  ADD KEY `tab_Desembolso_EstornoCodigoConta` (`CCredito`);
+
+--
+-- Indexes for table `tab_despesas`
+--
+ALTER TABLE `tab_despesas`
+  ADD PRIMARY KEY (`CDespesa`);
+
+--
+-- Indexes for table `tab_fluxo`
+--
+ALTER TABLE `tab_fluxo`
+  ADD PRIMARY KEY (`CFluxo`),
+  ADD KEY `IDFolha` (`IDFolha`),
+  ADD KEY `tab_FluxoCaixaCodigoBanco` (`CBanco`),
+  ADD KEY `tab_FluxoCaixaCodigoCliente` (`CCliente`),
+  ADD KEY `tab_FluxoCaixaCodigoConta` (`CCredito`),
+  ADD KEY `tab_FluxoCaixaCodigoLancCaixa` (`CLancamentoCaixa`),
+  ADD KEY `tab_FluxoCaixaCodigoPrestacao` (`CPrestacao`),
+  ADD KEY `tab_FluxoCaixaCodigoPrestacaoRealizado` (`CPrestacaoPaga`),
+  ADD KEY `tab_FluxoCaixaCodigoTipoDesembolso` (`CFormaPagamento`),
+  ADD KEY `tab_FluxoCaixaCodigoUsuario` (`CUsuario`);
+
+--
+-- Indexes for table `tab_folhasalario`
+--
+ALTER TABLE `tab_folhasalario`
+  ADD PRIMARY KEY (`IDFolha`),
+  ADD KEY `CodigoUsuario` (`CUsuario`);
+
+--
+-- Indexes for table `tab_folhasalario_lancbeneficio`
+--
+ALTER TABLE `tab_folhasalario_lancbeneficio`
+  ADD KEY `IDFolha` (`IDFolha`);
+
+--
+-- Indexes for table `tab_folhasalario_lancdesconto`
+--
+ALTER TABLE `tab_folhasalario_lancdesconto`
+  ADD KEY `IDFolha` (`IDFolha`);
+
+--
+-- Indexes for table `tab_garantias_avalista`
+--
+ALTER TABLE `tab_garantias_avalista`
+  ADD PRIMARY KEY (`CGarantiaAvalista`),
+  ADD KEY `tab_Garantias_AvalistaCodigoAvalista` (`CAvalista`),
+  ADD KEY `tab_GarantiasCodigoCliente` (`CCliente`),
+  ADD KEY `tab_GarantiasCodigoGarantia` (`CTipoGarantia`),
+  ADD KEY `tab_GarantiasCodigoUsuario` (`CUsuario`);
+
+--
+-- Indexes for table `tab_garantias_cliente`
+--
+ALTER TABLE `tab_garantias_cliente`
+  ADD PRIMARY KEY (`CGarantiaCliente`),
+  ADD KEY `tab_GarantiasCodigoCliente` (`CCliente`),
+  ADD KEY `tab_GarantiasCodigoGarantia` (`CTipoGarantia`),
+  ADD KEY `tab_GarantiasCodigoUsuario` (`CUsuario`);
+
+--
+-- Indexes for table `tab_preparo`
+--
+ALTER TABLE `tab_preparo`
+  ADD KEY `NumeroRecibo` (`TipoDesconto`),
+  ADD KEY `tab_PgtPreparosCodigoCliente` (`CCliente`),
+  ADD KEY `tab_PgtPreparosCodigoConta` (`CCredito`),
+  ADD KEY `tab_PgtPreparosCodigoUsuario` (`CUsuario`);
+
+--
+-- Indexes for table `tab_prestacao_1plano`
+--
+ALTER TABLE `tab_prestacao_1plano`
+  ADD PRIMARY KEY (`CPrestacao`),
+  ADD KEY `tab_MensalidadesCodigoAluno` (`CCliente`),
+  ADD KEY `tab_MensalidadesCodigoConta` (`CCredito`),
+  ADD KEY `tab_PrestacoesCodigoUsuario` (`CUsuario`);
+
+--
+-- Indexes for table `tab_prestacao_2vigente`
+--
+ALTER TABLE `tab_prestacao_2vigente`
+  ADD PRIMARY KEY (`CPrestacaoVigente`),
+  ADD KEY `tab_MensalidadesCodigoAluno` (`CCliente`),
+  ADD KEY `tab_MensalidadesCodigoConta` (`CCredito`);
+
+--
+-- Indexes for table `tab_prestacao_3estorno`
+--
+ALTER TABLE `tab_prestacao_3estorno`
+  ADD PRIMARY KEY (`CPrestacaoVigente`),
+  ADD KEY `tab_MensalidadesCodigoAluno` (`CCliente`),
+  ADD KEY `tab_MensalidadesCodigoConta` (`CCredito`);
+
+--
+-- Indexes for table `tab_prestacao_4paga`
+--
+ALTER TABLE `tab_prestacao_4paga`
+  ADD PRIMARY KEY (`CPrestacaoPaga`),
+  ADD KEY `tab_MensalidadesCodigoAluno` (`CCliente`),
+  ADD KEY `tab_MensalidadesCodigoConta` (`CCredito`),
+  ADD KEY `tab_Prestacoes_RealizadoCodigoUsuario` (`CUsuario`);
+
+--
+-- Indexes for table `tab_usuarios`
+--
+ALTER TABLE `tab_usuarios`
+  ADD PRIMARY KEY (`IdUsuario`),
+  ADD KEY `IdSucursal` (`IdSucursal`);
+
+--
+-- Indexes for table `tb_banco`
+--
+ALTER TABLE `tb_banco`
+  ADD PRIMARY KEY (`IdBanco`),
+  ADD KEY `NumeroDeConta` (`NumeroDeConta`),
+  ADD KEY `IdSucursal` (`IdSucursal`);
+
+--
+-- Indexes for table `tb_destinocredito`
+--
+ALTER TABLE `tb_destinocredito`
+  ADD PRIMARY KEY (`IdDestino`),
+  ADD KEY `tb_destinocredito_ibfk_1` (`IdSucursal`);
+
+--
+-- Indexes for table `tb_formapagamento`
+--
+ALTER TABLE `tb_formapagamento`
+  ADD PRIMARY KEY (`IdFormaPagamento`),
+  ADD KEY `IdSucursal` (`IdSucursal`);
+
+--
+-- Indexes for table `tb_gestor`
+--
+ALTER TABLE `tb_gestor`
+  ADD PRIMARY KEY (`IdGestor`),
+  ADD KEY `IdSucursal` (`IdSucursal`);
+
+--
+-- Indexes for table `tb_linhacredito`
+--
+ALTER TABLE `tb_linhacredito`
+  ADD PRIMARY KEY (`IdLinha`),
+  ADD KEY `IdSucursal` (`IdSucursal`);
+
+--
+-- Indexes for table `tb_motivoregeita`
+--
+ALTER TABLE `tb_motivoregeita`
+  ADD PRIMARY KEY (`IdMotivo`),
+  ADD KEY `IdSucursal` (`IdSucursal`);
+
+--
+-- Indexes for table `tb_sucursal`
+--
+ALTER TABLE `tb_sucursal`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `tb_taxas`
+--
+ALTER TABLE `tb_taxas`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `IdSucursal` (`IdSucursal`);
+
+--
+-- Indexes for table `tb_tipogarantia`
+--
+ALTER TABLE `tb_tipogarantia`
+  ADD PRIMARY KEY (`IdGarantia`),
+  ADD KEY `IdSucursal` (`IdSucursal`);
+
+--
+-- Indexes for table `tb_tipolancamento`
+--
+ALTER TABLE `tb_tipolancamento`
+  ADD PRIMARY KEY (`IdTipoLancamento`),
+  ADD KEY `IdSucursal` (`IdSucursal`);
+
+--
+-- Indexes for table `tb_tipolancamentocaixa`
+--
+ALTER TABLE `tb_tipolancamentocaixa`
+  ADD PRIMARY KEY (`CLancamentoCaixa`);
+
+--
+-- Indexes for table `tb_tipolancamentodesconto`
+--
+ALTER TABLE `tb_tipolancamentodesconto`
+  ADD PRIMARY KEY (`CDesconto`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tab_avalista`
+--
+ALTER TABLE `tab_avalista`
+  MODIFY `IdAvalista` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `tab_cliente`
+--
+ALTER TABLE `tab_cliente`
+  MODIFY `IdCliente` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `tab_credito_1solicitado`
+--
+ALTER TABLE `tab_credito_1solicitado`
+  MODIFY `IdCredito` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=182;
+--
+-- AUTO_INCREMENT for table `tab_credito_4vigente`
+--
+ALTER TABLE `tab_credito_4vigente`
+  MODIFY `IdCredito` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+--
+-- AUTO_INCREMENT for table `tab_credito_5abate`
+--
+ALTER TABLE `tab_credito_5abate`
+  MODIFY `CAbate` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+--
+-- AUTO_INCREMENT for table `tab_credito_6pago`
+--
+ALTER TABLE `tab_credito_6pago`
+  MODIFY `CCreditoPago` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tab_despesas`
+--
+ALTER TABLE `tab_despesas`
+  MODIFY `CDespesa` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tab_fluxo`
+--
+ALTER TABLE `tab_fluxo`
+  MODIFY `CFluxo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2368;
+--
+-- AUTO_INCREMENT for table `tab_folhasalario`
+--
+ALTER TABLE `tab_folhasalario`
+  MODIFY `IDFolha` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tab_garantias_avalista`
+--
+ALTER TABLE `tab_garantias_avalista`
+  MODIFY `CGarantiaAvalista` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tab_garantias_cliente`
+--
+ALTER TABLE `tab_garantias_cliente`
+  MODIFY `CGarantiaCliente` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=567;
+--
+-- AUTO_INCREMENT for table `tab_prestacao_1plano`
+--
+ALTER TABLE `tab_prestacao_1plano`
+  MODIFY `CPrestacao` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1327;
+--
+-- AUTO_INCREMENT for table `tab_prestacao_2vigente`
+--
+ALTER TABLE `tab_prestacao_2vigente`
+  MODIFY `CPrestacaoVigente` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1335;
+--
+-- AUTO_INCREMENT for table `tab_prestacao_3estorno`
+--
+ALTER TABLE `tab_prestacao_3estorno`
+  MODIFY `CPrestacaoVigente` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tab_prestacao_4paga`
+--
+ALTER TABLE `tab_prestacao_4paga`
+  MODIFY `CPrestacaoPaga` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=815;
+--
+-- AUTO_INCREMENT for table `tab_usuarios`
+--
+ALTER TABLE `tab_usuarios`
+  MODIFY `IdUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+--
+-- AUTO_INCREMENT for table `tb_banco`
+--
+ALTER TABLE `tb_banco`
+  MODIFY `IdBanco` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tb_destinocredito`
+--
+ALTER TABLE `tb_destinocredito`
+  MODIFY `IdDestino` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `tb_formapagamento`
+--
+ALTER TABLE `tb_formapagamento`
+  MODIFY `IdFormaPagamento` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `tb_gestor`
+--
+ALTER TABLE `tb_gestor`
+  MODIFY `IdGestor` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `tb_linhacredito`
+--
+ALTER TABLE `tb_linhacredito`
+  MODIFY `IdLinha` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT for table `tb_motivoregeita`
+--
+ALTER TABLE `tb_motivoregeita`
+  MODIFY `IdMotivo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT for table `tb_sucursal`
+--
+ALTER TABLE `tb_sucursal`
+  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `tb_taxas`
+--
+ALTER TABLE `tb_taxas`
+  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT for table `tb_tipogarantia`
+--
+ALTER TABLE `tb_tipogarantia`
+  MODIFY `IdGarantia` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT for table `tb_tipolancamento`
+--
+ALTER TABLE `tb_tipolancamento`
+  MODIFY `IdTipoLancamento` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tb_tipolancamentocaixa`
+--
+ALTER TABLE `tb_tipolancamentocaixa`
+  MODIFY `CLancamentoCaixa` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+--
+-- AUTO_INCREMENT for table `tb_tipolancamentodesconto`
+--
+ALTER TABLE `tb_tipolancamentodesconto`
+  MODIFY `CDesconto` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tab_cliente`
+--
+ALTER TABLE `tab_cliente`
+  ADD CONSTRAINT `tab_cliente_ibfk_2` FOREIGN KEY (`IdGestor`) REFERENCES `tb_gestor` (`IdGestor`);
+
+--
+-- Constraints for table `tab_usuarios`
+--
+ALTER TABLE `tab_usuarios`
+  ADD CONSTRAINT `tab_usuarios_ibfk_1` FOREIGN KEY (`IdSucursal`) REFERENCES `tb_sucursal` (`Id`);
+
+--
+-- Constraints for table `tb_banco`
+--
+ALTER TABLE `tb_banco`
+  ADD CONSTRAINT `tb_banco_ibfk_1` FOREIGN KEY (`IdSucursal`) REFERENCES `tb_sucursal` (`Id`);
+
+--
+-- Constraints for table `tb_destinocredito`
+--
+ALTER TABLE `tb_destinocredito`
+  ADD CONSTRAINT `tb_destinocredito_ibfk_1` FOREIGN KEY (`IdSucursal`) REFERENCES `tb_sucursal` (`Id`);
+
+--
+-- Constraints for table `tb_gestor`
+--
+ALTER TABLE `tb_gestor`
+  ADD CONSTRAINT `tb_gestor_ibfk_1` FOREIGN KEY (`IdSucursal`) REFERENCES `tb_sucursal` (`Id`);
+
+--
+-- Constraints for table `tb_linhacredito`
+--
+ALTER TABLE `tb_linhacredito`
+  ADD CONSTRAINT `tb_linhacredito_ibfk_1` FOREIGN KEY (`IdSucursal`) REFERENCES `tb_sucursal` (`Id`);
+
+--
+-- Constraints for table `tb_motivoregeita`
+--
+ALTER TABLE `tb_motivoregeita`
+  ADD CONSTRAINT `tb_motivoregeita_ibfk_1` FOREIGN KEY (`IdSucursal`) REFERENCES `tb_sucursal` (`Id`);
+
+--
+-- Constraints for table `tb_taxas`
+--
+ALTER TABLE `tb_taxas`
+  ADD CONSTRAINT `tb_taxas_ibfk_2` FOREIGN KEY (`IdSucursal`) REFERENCES `tb_sucursal` (`Id`);
+
+--
+-- Constraints for table `tb_tipogarantia`
+--
+ALTER TABLE `tb_tipogarantia`
+  ADD CONSTRAINT `tb_tipogarantia_ibfk_2` FOREIGN KEY (`IdSucursal`) REFERENCES `tb_sucursal` (`Id`);
+
+--
+-- Constraints for table `tb_tipolancamento`
+--
+ALTER TABLE `tb_tipolancamento`
+  ADD CONSTRAINT `tb_tipolancamento_ibfk_1` FOREIGN KEY (`IdSucursal`) REFERENCES `tb_sucursal` (`Id`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
